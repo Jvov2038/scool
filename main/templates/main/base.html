@@ -1,0 +1,135 @@
+{% load static %}
+{% load main_tags %}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+<link href="http://127.0.0.1:8000/static/main/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<meta name="theme-color" content="#712cf9">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="http://127.0.0.1:8000/static/main/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <!-Указаны абсолютные url для файлов css. При развертывании на сервере сменить на реальные-!>
+      <link href="http://127.0.0.1:8000/static/main/css/style.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="http://127.0.0.1:8000/static/main/css/carousel.css" rel="stylesheet">
+  </head>
+  <body>
+
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+     {% block mainmenu %}
+            <div id="menuContainer">
+                <ul id="mainmenu" class="mainmenu">
+                <li class="logo"><a href="{% url 'home' %}"><div class="logo"></div></a></li>
+     {% for m in menu %}
+                 <li><a href="{% url m.url_name %}">{{m.title}}</a></li>
+     {% endfor %}
+                    <li><a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Личный кабинет</a></li>
+                 </ul>
+                 <div class="clear"></div>
+            </div>
+      {% endblock mainmenu %}
+
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Поиск по сайту" aria-label="search">
+          <button class="btn btn-outline-success" type="submit">Поиск</button>
+        </form>
+
+      </div>
+  </nav>
+</header>
+<table class="table-content" border=0 cellpadding="0" cellspacing="0">
+<tr>
+<!-- Sidebar слева -->
+    <td valign="top" class="left-chapters">
+    <ul id="leftchapters">
+{% if cat_selected == 0 %}
+		<li class="selected">Все категории</li>
+{% else %}
+		<li><a href="{% url 'home' %}">Все категории</a></li>
+{% endif %}
+
+{% for c in cats %}
+{% if c.article__count > 0 %}
+    {% if c.pk == cat_selected %}
+            <li class="selected">{{c.name}}</li>
+        {% else %}
+            <li><a href="{{ c.get_absolute_url }}">{{c.name}}</a></li>
+        {% endif %}
+{% endif %}
+{% endfor %}
+
+		<li class="share">
+		<p>Наш канал</p>
+		<a class="share-yt" href="https://youtube.com/shorts/S6SXfFRs6ls?feature=share" target="_blank" rel="nofollow"></a>
+		</li>
+	</ul>
+</td>
+<!-- Конец Sidebar'а -->
+<td valign="top" class="content">
+	<!-- Хлебные крошки -->
+	{% block breadcrumbs %}
+	{% endblock %}
+
+<!-- Блок контента -->
+<div class="content-text">
+{% block content %}
+{% endblock %}
+<nav class="list-pages">
+        <ul>
+        {% for p in paginator.page_range %}
+        <li class="page-num">
+            <a href="?page={{ p }}">{{ p }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
+</div>
+    <!-- Конец блока контента -->
+</td>
+</tr>
+</table>
+  </body>
+ <!-- FOOTER -->
+  <div class="b-example-divider"></div>
+ <div class="container">
+   <footer class="py-5">
+    <div class="row">
+      <div class="col-6 col-md-3 mb-4">
+        <h5>Меню</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">О центре</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Документы</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Новости</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Личный кабинет</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Программы</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <iframe id="mapFrame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.173234312748!2d44.67214721523586!3d43.0588239791462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40500acb93601b7b%3A0x5f64a63abbfd9e1!2z0YPQuy4g0J_QvtC20LDRgNGB0LrQvtCz0L4sIDIxLCDQktC70LDQtNC40LrQsNCy0LrQsNC3LCDQoNC10YHQvy4g0KHQtdCy0LXRgNC90LDRjyDQntGB0LXRgtC40Y8t0JDQu9Cw0L3QuNGPLCAzNjIwMTM!5e0!3m2!1sru!2sru!4v1671996663559!5m2!1sru!2sru" width="300" height="200" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="col-md-5">
+        <form>
+        <h5>Подписывайтесь на нашу новостную рассылку</h5>
+        <p>Ежемесячный дайджест всего нового и интересного от нас!</p>
+        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+          <label for="newsletter1" class="visually-hidden">Email address</label>
+          <input id="newsletter1" type="text" class="form-control" placeholder="Email адрес">
+          <button class="btn btn-primary" type="button">Подписаться</button>
+        </div>
+      </form>
+      </div>
+    </div>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>&copy; 2022 White cat.</p>
+    </div>
+      </footer>
+</div>
+</html>
