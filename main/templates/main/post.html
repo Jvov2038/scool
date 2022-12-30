@@ -8,5 +8,11 @@
 <p><img class="img-article-left" src="{{post.photo.url}}"</p>
 {% endif %}
 
+{% for p in paginator.page_range %}
+<li class="page-num">
+    <a href="?page={{ p }}">{{ p }}</a>
+</li>
+{% endfor %}
+
 {{post.content|linebreaks}}
 {% endblock %}
