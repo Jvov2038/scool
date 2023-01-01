@@ -60,8 +60,8 @@
                             <div class="header_wrap d-flex justify-content-between align-items-center">
                                 <div class="header_left">
                                     <div class="logo">
-                                        <a href="index.html">
-                                            <img src="img/logo.png" alt="">
+                                        <a href="/">
+                                            <img src="../../static/main2/img/logo.png" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -71,7 +71,17 @@
                                         <nav>
                                             <ul id="navigation">
                                             {% for m in menu %}
-                                                <li><a  href="{% url m.url_name %}">{{m.title}}</a></li>
+                                                <li><a  href="{% url m.url_name %}">{{m.title}}
+                                                {% if m.url_name == 'programs'%}
+                                                    <i class="ti-angle-down"></i></a>
+                                                    <ul class="submenu">
+                                                    {% for sm in m.submenu %}
+                                                        <li><a href="{% url sm.url_name %}">{{sm.title}}</a></li>
+                                                    {% endfor %}
+                                                    </ul>
+                                                {% endif %}
+                                                    </a>
+                                                </li>
                                             {% endfor %}
                                             </ul>
                                         </nav>
@@ -103,9 +113,10 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text ">
-                                <h3>Boost up your skills <br>
-                                    with a new way of <br>
-                                    learning.</h3>
+                                <h3>Ученье свет<br>
+                                    а неученье мрак
+                                     <br>
+                                    В.И. Ленин</h3>
                                 <a href="#" class="boxed-btn3">Get Start</a>
                                 <a href="#" class="boxed-btn4">Take a tour</a>
                             </div>
@@ -272,7 +283,7 @@
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
                             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <script>document.write(new Date().getFullYear());</script>  | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="#" target="_blank">White cat</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                         </p>
                     </div>

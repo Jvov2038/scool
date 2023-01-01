@@ -2,9 +2,14 @@ from django.db.models import Count
 
 from .models import *
 
-menu = [{'title': "О центре", 'url_name': 'about'},
+menu = [
+        {'title': "О центре", 'url_name': 'about'},
         {'title': "Добавить документ", 'url_name': 'add_page'},
-        {'title': "Программы", 'url_name': 'programs'},
+        {'title': "Программы", 'url_name': 'programs',
+         'submenu': [{'title': 'Сириус Лето', 'url_name': 'sirius'},
+                     {'title': 'Большие вызовы', 'url_name': 'big_challengers'},
+                     {'title': 'Всеросийская олимпиада школьников', 'url_name': 'olimpiada'}]},
+        {'title': "Документы", 'url_name': 'docs'}
         ]
 
 
@@ -23,3 +28,4 @@ class DataMixin:
         if 'cat_selected' not in context:
             context['cat_selected'] = 0
         return context
+

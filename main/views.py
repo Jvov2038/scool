@@ -1,4 +1,5 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.views import LoginView
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
@@ -19,6 +20,21 @@ class MainHome(DataMixin, ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title="Образовательный центр")
+        return dict(list(context.items()) + list(c_def.items()))
+
+    def get_queryset(self):
+        return Article.objects.filter(is_published=True)
+
+
+class About(DataMixin, ListView):
+    paginate_by = 3
+    model = Article
+    template_name = 'main/about.html'
+    context_object_name = 'posts'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="О центре")
         return dict(list(context.items()) + list(c_def.items()))
 
     def get_queryset(self):
@@ -53,9 +69,9 @@ class MainCategory(DataMixin, ListView):
 #    return render(request, 'main/index.html', context=context)
 
 
-def about(request):
-    posts = Article.objects.all()
-    return render(request, 'main/about.html', {'menu': menu, 'title': 'О центре'})
+#def about(request):
+#    posts = Article.objects.all()
+#    return render(request, 'main/about.html', {'menu': menu, 'title': 'О центре'})
 
 
 #def addpage(request):
@@ -89,8 +105,18 @@ def programs(request):
     return HttpResponse('Программы')
 
 
-def login(request):
-    return HttpResponse('Личный кабинет')
+def docs(request):
+    return HttpResponse('Документы')
+
+def sirius(request):
+    return HttpResponse('Сириус Лето')
+
+def big_challengers(request):
+    return HttpResponse('Большие вызовы')
+
+def olimpiada(request):
+    return HttpResponse('Всероссийская олимпиада школьников')
+
 
 
 #def show_post(request, post_slug):
@@ -132,6 +158,17 @@ class RegisterUser(DataMixin, CreateView):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title='Регистрация')
         return dict(list(context.items()) + list(c_def.items()))
+
+
+class LoginUser(DataMixin, LoginView):
+    form_class = AuthenticationForm
+    template_name = 'main/login.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Авторизация")
+        return dict(list(context.items())+list(c_def.items()))
+
 
 class ShowPost(DataMixin, DetailView):
     model = Article

@@ -1,3 +1,5 @@
+import this
+
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -7,6 +9,10 @@ from .models import *
 
 
 class AddPostForm(forms.ModelForm):
+    title = forms.CharField(label='Заголовок', widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Заголовок'}))
+    slug = forms.URLField(label='URL', widget=forms.URLInput(attrs={'class': 'form-input'}))
+    photo = forms.ImageField(label='Фото', widget=forms.FileInput(attrs={'class': 'form-input'}))
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['cat'].empty_label = "Категория не выбрана"
