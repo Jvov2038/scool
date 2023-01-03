@@ -41,7 +41,7 @@
                            class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                            <div class="thumb">
                               <a href="#">
-                                 <img class="img-fluid" src="img/post/preview.png" alt="">
+                                 <img class="img-fluid" src="{{ post.get_previous_by_time_create.photo.url }}" alt="">
                               </a>
                            </div>
                            <div class="arrow">
@@ -52,7 +52,7 @@
                            <div class="detials">
                               <p>Prev Post</p>
                               <a href="#">
-                                 <h4>Space The Final Frontier</h4>
+                                 <h4>{{ post.get_previous_by_time_create.title }}</h4>
                               </a>
                            </div>
                         </div>
@@ -61,7 +61,7 @@
                            <div class="detials">
                               <p>Next Post</p>
                               <a href="#">
-                                 <h4>Telescopes 101</h4>
+                                 <h4>{{ post.get_next_by_time_create.title }}</h4>
                               </a>
                            </div>
                            <div class="arrow">
@@ -71,7 +71,7 @@
                            </div>
                            <div class="thumb">
                               <a href="#">
-                                 <img class="img-fluid" src="img/post/next.png" alt="">
+                                 <img class="img-fluid" src="{{ post.get_next_by_time_create.photo.url }}" alt="">
                               </a>
                            </div>
                         </div>

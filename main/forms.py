@@ -10,7 +10,7 @@ from .models import *
 
 class AddPostForm(forms.ModelForm):
     title = forms.CharField(label='Заголовок', widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Заголовок'}))
-    slug = forms.URLField(label='URL', widget=forms.URLInput(attrs={'class': 'form-input'}))
+    slug = forms.URLField(label='URL', widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'URL'}))
     photo = forms.ImageField(label='Фото', widget=forms.FileInput(attrs={'class': 'form-input'}))
 
     def __init__(self, *args, **kwargs):
@@ -22,7 +22,7 @@ class AddPostForm(forms.ModelForm):
         fields = ['title', 'slug', 'content', 'photo', 'is_published', 'cat']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-input'}),
-            'content': forms.Textarea(attrs={'cols': 60, 'rows': 10}),
+            'content': forms.Textarea(attrs={'cols': 60, 'rows': 10, 'placeholder': 'Содержание документа'}),
         }
 
     def clean_title(self):
@@ -33,7 +33,7 @@ class AddPostForm(forms.ModelForm):
         return title
 
 class RegisterUserForm(UserCreationForm):
-    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
+    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input', 'plaсeholder': 'Логин'}))
     email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-input'}))
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
     password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'class': 'form-input'}))

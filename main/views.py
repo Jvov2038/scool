@@ -105,6 +105,18 @@ def programs(request):
     return HttpResponse('Программы')
 
 
+def info(request):
+    return HttpResponse('Общая информация')
+
+
+def p_sovet(request):
+    return HttpResponse('Попечительский совет')
+
+
+def e_sovet(request):
+    return HttpResponse('Экспертный совет')
+
+
 def docs(request):
     return HttpResponse('Документы')
 

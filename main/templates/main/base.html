@@ -70,26 +70,23 @@
                                     <div class="main-menu  d-none d-lg-block">
                                         <nav>
                                             <ul id="navigation">
-                                            {% for m in menu %}
+                                                {% for m in menu %}
                                                 <li><a  href="{% url m.url_name %}">{{m.title}}
-                                                {% if m.url_name == 'programs'%}
                                                     <i class="ti-angle-down"></i></a>
                                                     <ul class="submenu">
-                                                    {% for sm in m.submenu %}
+                                                        {% for sm in m.submenu %}
                                                         <li><a href="{% url sm.url_name %}">{{sm.title}}</a></li>
-                                                    {% endfor %}
+                                                        {% endfor %}
                                                     </ul>
-                                                {% endif %}
-                                                    </a>
                                                 </li>
-                                            {% endfor %}
+                                                {% endfor %}
                                             </ul>
                                         </nav>
                                     </div>
                                     {% endblock mainmenu %}
                                     <div class="Appointment">
                                         <div class="book_btn d-none d-lg-block">
-                                            <a data-scroll-nav='1' href="#">Apply NOw</a>
+                                            <a data-scroll-nav='1' href="#">Подать заявку</a>
                                         </div>
                                     </div>
                                 </div>
@@ -117,8 +114,8 @@
                                     а неученье мрак
                                      <br>
                                     В.И. Ленин</h3>
-                                <a href="#" class="boxed-btn3">Get Start</a>
-                                <a href="#" class="boxed-btn4">Take a tour</a>
+                                <a href="#" class="boxed-btn3">Зарегистрироваться</a>
+                                <a href="#" class="boxed-btn4">Выбрать программу</a>
                             </div>
                         </div>
                     </div>
@@ -174,7 +171,7 @@
                         <div class="col-md-7">
                             <div class="footer_widget">
                                 <h3 class="footer_title">
-                                    Stay Updated
+                                    Новостная рассылка
                                 </h3>
                                 <form action="#" class="newsletter_form">
                                     <input type="text" placeholder="Email Address">
@@ -185,7 +182,7 @@
                         <div class="col-md-12 col-lg-5">
                             <div class="footer_widget">
                                 <h3 class="footer_title">
-                                    Stay Updated
+                                    Мы в социальных сетях
                                 </h3>
                                 <div class="socail_links">
                                     <ul>
@@ -220,56 +217,58 @@
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                About Us
+                                О центре
                             </h3>
                             <ul>
-                                <li><a href="#">Online Learning</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Careers</a></li>
-                                <li><a href="#">Press Center</a></li>
-                                <li><a href="#">Become an Instructor</a></li>
+                                <li><a href="#">Общая информация</a></li>
+                                <li><a href="#">Попечительский совет</a></li>
+                                <li><a href="#">Экспертный совет</a></li>
+                                <li><a href="#">Документы</a></li>
+                                <li><a href="#">Партнеры</a></li>
+                                <li><a href="#">Математический парк</a></li>
+                                <li><a href="#">Новости</a></li>
+                                <li><a href="#">Контакты</a></li>
+                                <li><a href="#">Большие вызовы</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Campus
+                                Как попасть
                             </h3>
                             <ul>
-                                <li><a href="#">Our Plans</a></li>
-                                <li><a href="#">Free Trial</a></li>
-                                <li><a href="#">Academic Solutions</a></li>
-                                <li><a href="#">Business Solutions</a></li>
-                                <li><a href="#">Government Solutions</a></li>
+                                <li><a href="#">Критерии отбора</a></li>
+                                <li><a href="#">Заявка онлайн</a></li>
+                                <li><a href="#">Правила пребывания</a></li>
+                                <li><a href="#">Условия Размещения</a></li>
+                                <li><a href="#">Памятка для родителей</a></li>
+                                <li><a href="#">Необходимые документы</a></li>
+                                <li><a href="#">Часто задаваемые вопросы</a></li>
+                                <li><a href="#">Лекториум</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Study
+                                Педагогам
                             </h3>
                             <ul>
-                                <li><a href="#">Admissions Policy</a></li>
-                                <li><a href="#">Getting Started</a></li>
-                                <li><a href="#">Visa Information</a></li>
-                                <li><a href="#">Tuition Calculator</a></li>
-                                <li><a href="#">Request Information</a></li>
+                                <li><a href="#">Образовательные программы Центра "Сириус"</a></li>
+                                <li><a href="#">Методическое сопровождение модельной программы Центра "Сириус"</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-3">
                         <div class="footer_widget">
                             <h3 class="footer_title">
-                                Support
+                                Образовательные программы
                             </h3>
                             <ul>
-                                <li><a href="#">Support</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">System Requirements</a></li>
-                                <li><a href="#">Register Activation Key</a></li>
-                                <li><a href="#">Site feedback</a></li>
+                                <li><a href="#">Наука</a></li>
+                                <li><a href="#">Спорт</a></li>
+                                <li><a href="#">Культура</a></li>
                             </ul>
                         </div>
                     </div>
@@ -282,9 +281,9 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <p>
   <script>document.write(new Date().getFullYear());</script>  | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="#" target="_blank">White cat</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            </p>
                         </p>
                     </div>
                 </div>

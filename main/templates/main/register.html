@@ -2,17 +2,42 @@
 
 {% block content %}
 
-<form method="post">
-    {% csrf_token %}
-    {% for f in form %}
-    <div class="row">
-        <div class="single_input">
-            <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{f}}</p>
-            <div class="form-error">{{f.errors}}</div>
-    {% endfor %}
-            <button class="boxed-btn3">Зарегистрировать</button>
+    <!-- latest_coures_area_start  -->
+<div class="admission_area">
+    <div class="admission_inner">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-lg-7">
+                    <div class="admission_form">
+                        <h3>Регистрация</h3>
+                              <form action="{% url 'add_page' %}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="single_input">
+                                            <div class="form-error">{{ form.non_field_errors }}</div>
+                                        {% for f in form %}
+                                            <!--input type="text" placeholder={{f}}-->
+                                            {{ f }}
+                                            <div class="form-error">{{ f.errors }}</div>
+                                        {% endfor %}
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                    <div class="col-md-12">
+                                        <div class="apply_btn">
+                                            <button class="boxed-btn3">Зарегистрировать</button>
+                                        </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</form>
-
+</div>
+    <!--/ latest_coures_area_end -->
 {% endblock %}
+
