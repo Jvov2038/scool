@@ -13,7 +13,7 @@ from .utils import *
 
 
 class MainHome(DataMixin, ListView):
-    paginate_by = 4
+    paginate_by = 3
     model = Article
     template_name = 'main/index.html'
     context_object_name = 'posts'
@@ -62,7 +62,7 @@ def logout_user(request):
 
 
 class ShowPost(DataMixin, DetailView):
-    paginate_by = 3
+    paginate_by = 1
     model = Article
     template_name = 'main/post.html'
     slug_url_kwarg = 'post_slug'

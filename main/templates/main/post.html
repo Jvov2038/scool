@@ -5,7 +5,7 @@
    <section class="blog_area single-post-area section-padding">
       <div class="container">
          <div class="row">
-            <div class="col-lg-8 posts-list">
+            <div class="col-lg-12 posts-list">
                 <div class="single-post">
                     <h1>{{post.title}}</h1>
 
@@ -197,110 +197,9 @@
                   </form>
                </div>
             </div>
-            <div class="col-lg-4">
-               <div class="blog_right_sidebar">
-                  <aside class="single_sidebar_widget search_widget">
-                     <form action="#">
-                        <div class="form-group">
-                           <div class="input-group mb-3">
-                              <input type="text" class="form-control" placeholder='Ключевые слова'
-                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ключевые слова'">
-                              <div class="input-group-append">
-                                 <button class="btn" type="button"><i class="ti-search"></i></button>
-                              </div>
-                           </div>
-                        </div>
-                        <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                           type="submit">Поиск</button>
-                     </form>
-                  </aside>
-                  <aside class="single_sidebar_widget post_category_widget">
-                     <h4 class="widget_title">Категории</h4>
-                     <ul class="list cat-list">
-                        {% for c in cats %}
-                        <li>
-                           <a href="{{ c.get_absolute_url }}" class="d-flex">
-                              <p>{{ c.name }}</p>
-                           </a>
-                        </li>
-                        {% endfor %}
-                     </ul>
-                  </aside>
-
-                   <aside class="single_sidebar_widget popular_post_widget">
-                            <h3 class="widget_title">Последние новости</h3>
-                            {% for p in posts %}
-                              <div class="media post_item">
-                                <img class="logo-img" src="{{ p.photo.url }}"  alt="post">
-                                <div class="media-body">
-                                    <a href="{{ p.get_absolute_url }}">
-                                        <h3>{{ p.title|truncatewords:4 }}</h3>
-                                    </a>
-                                    <p>{{p.time_update|date:"d-m-Y H:i"}}</p>
-                                </div>
-                               </div>
-                            {% endfor %}
-                   </aside>
-
-                  <aside class="single_sidebar_widget tag_cloud_widget">
-                     <h4 class="widget_title">Облака тегов</h4>
-                     <ul class="list">
-                        <li>
-                           <a href="#">project</a>
-                        </li>
-                        <li>
-                           <a href="#">love</a>
-                        </li>
-                        <li>
-                           <a href="#">technology</a>
-                        </li>
-                        <li>
-                           <a href="#">travel</a>
-                        </li>
-                        <li>
-                           <a href="#">restaurant</a>
-                        </li>
-                        <li>
-                           <a href="#">life style</a>
-                        </li>
-                        <li>
-                           <a href="#">design</a>
-                        </li>
-                        <li>
-                           <a href="#">illustration</a>
-                        </li>
-                     </ul>
-                  </aside>
-                  <aside class="single_sidebar_widget instagram_feeds">
-                            <a href="gallery">
-                                <h4 class="widget_title">Фото галерея</h4>
-                            </a>
-                                <ul class="instagram_row flex-wrap">
-                                    {% for p in posts %}
-                                    <li>
-                                        <a href="{{ p.get_absolute_url }}">
-                                            <img class="img-fluid" src="{{ p.photo.url }}" alt="">
-                                        </a>
-                                    </li>
-                                    {% endfor %}
-                                </ul>
-                  </aside>
-
-                  <aside class="single_sidebar_widget newsletter_widget">
-                     <h4 class="widget_title">Newsletter</h4>
-                     <form action="#">
-                        <div class="form-group">
-                           <input type="email" class="form-control" onfocus="this.placeholder = ''"
-                              onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
-                        </div>
-                        <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                           type="submit">Subscribe</button>
-                     </form>
-                  </aside>
-               </div>
-            </div>
          </div>
       </div>
    </section>
-   <!--================ Blog Area end =================-->
+
+
 {% endblock %}

@@ -200,8 +200,8 @@
                                     Новостная рассылка
                                 </h3>
                                 <form action="#" class="newsletter_form">
-                                    <input type="text" placeholder="Email Address">
-                                    <button type="submit">Subscribe Now</button>
+                                    <input type="text" placeholder="Email адрес">
+                                    <button type="submit">Подписаться</button>
                                 </form>
                             </div>
                         </div>
@@ -213,23 +213,23 @@
                                 <div class="socail_links">
                                     <ul>
                                         <li>
-                                            <a href="#">
-                                                <i class="ti-facebook"></i>
+                                            <a href="https://vk.com/">
+                                                 <img src="../../static/main2/img/vkontakte.png">
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                                <i class="fa fa-twitter"></i>
+                                            <a href="https://ok.ru/">
+                                                <img src="../../static/main2/img/odnoklassniki.png">
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                                <i class="fa fa-google-plus"></i>
+                                            <a href="https://www.youtube.com/">
+                                                <img src="../../static/main2/img/youtube.png">
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#">
-                                                <i class="fa fa-linkedin"></i>
+                                            <a href="https://web.telegram.org/">
+                                                <img src="../../static/main2/img/telegram.png">
                                             </a>
                                         </li>
                                     </ul>
@@ -248,7 +248,7 @@
                             </h3>
                             {% for sm in m.submenu %}
                             <ul>
-                                <li><a href="#">{{ sm.title }}</a></li>
+                                <li><a href="{% url sm.url_name %}">{{ sm.title }}</a></li>
                             </ul>
                             {% endfor %}
                         </div>
@@ -265,7 +265,7 @@
                     <div class="col-xl-12">
                         <p class="copy_right text-center">
                             <p>
-  <script>document.write(new Date().getFullYear());</script>  | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="#">White cat</a>
+  <script>document.write(new Date().getFullYear());</script>  | This template is made by <a href="#">White cat</a>
                             </p>
                         </p>
                     </div>

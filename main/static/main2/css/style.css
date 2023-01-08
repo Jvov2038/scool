@@ -21,7 +21,7 @@
 /* 1. Theme default css */
 /* line 5, ../../Arafath/CL/january 2020/243.Education/HTML/scss/theme-default.scss */
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: Arial;
   font-weight: normal;
   font-style: normal;
 }
@@ -73,7 +73,7 @@ button {
 
 /* line 39, ../../Arafath/CL/january 2020/243.Education/HTML/scss/theme-default.scss */
 h1, h2, h3, h4, h5 {
-  font-family: "Poppins", sans-serif;
+  font-family: Arial;
   color: #234262;
 }
 
@@ -1021,13 +1021,13 @@ h3 {
 .header-area .main-header-area .main-menu ul li a {
   color: #32364a;
   font-size: 14px;
-  text-transform: capitalize;
+  text-transform: none;
   font-weight: 600;
   display: inline-block;
   padding: 39px 0px 39px 0px;
   font-family: Arial;
   position: relative;
-  text-transform: capitalize;
+  text-transform: none;
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -2365,12 +2365,12 @@ h3 {
 
 /* line 24, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_footer.scss */
 .footer .footer_top .footer_widget .footer_title {
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 500;
   color: #fff;
-  text-transform: capitalize;
+  text-transform: none;
   margin-bottom: 25px;
-  font-family: "Poppins", sans-serif;
+  font-family: Arial;
 }
 
 @media (max-width: 767px) {
@@ -2456,14 +2456,14 @@ h3 {
 .footer .footer_top .footer_widget ul li {
   color: #8891a1;
   font-size: 16px;
-  line-height: 30px;
+  line-height: 35px;
 }
 
 /* line 94, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_footer.scss */
 .footer .footer_top .footer_widget ul li a {
   color: #7A838B;
   font-weight: 300;
-  font-family: "Poppins", sans-serif;
+  font-family: Arial;
 }
 
 /* line 98, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_footer.scss */
@@ -2488,7 +2488,7 @@ h3 {
   border: none;
   background: #fff;
   border-radius: 0px;
-  font-family: "Poppins", sans-serif;
+  font-family: Arial;
 }
 
 /* line 118, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_footer.scss */
@@ -2625,7 +2625,7 @@ h3 {
 
 /* line 214, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_footer.scss */
 .footer .socail_links ul li:nth-child(2) a {
-  background: #1da1f2;
+  background: #ebb830;
 }
 
 /* line 217, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_footer.scss */
