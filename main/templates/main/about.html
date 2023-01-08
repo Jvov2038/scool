@@ -1,40 +1,5 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-    <!-- recent_news_area_start  -->
-<div class="recent_news_area section__padding">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-                <div class="section_title text-center mb-70">
-                        <h3 class="mb-45">{{title}}</h3>
-                </div>
-            </div>
-        </div>
-            {% for p in posts %}
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="single__news">
-                        <div class="thumb">
-                            <a href="{{ p.get_absolute_url }}">
-                                <img src="{{p.photo.url}}" alt="">
-                            </a>
-                            <span class="badge">{{p.cat}}</span>
-                            </div>
-                            <div class="news_info">
-                            <a href="{{ p.get_absolute_url }}">
-                                <h4>{{p.title}}</h4>
-                            </a>
-                            <p class="d-flex align-items-center"> <span><i class="flaticon-calendar-1"></i>{{p.time_update|date:"d-m-Y H:i:s"}}</span>
 
-                            <span> <i class="flaticon-comment"></i> 01 comments</span>
-                            </p>
-                            </div>
-                    </div>
-                </div>
-            </div>
-    {% endfor %}
-    </div>
-</div>
-    <!-- recent_news_area_end  -->
 {% endblock %}

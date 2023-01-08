@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="section_title text-center mb-70">
+<h3 class="mb-45">{{ title }}</h3>
+</div>
+<div class="section-top-border">
+		<div class="row">
+			{% for p in posts %}
+			<div class="col-md-4">
+				<a href="{{ p.photo.url }}" class="img-pop-up">
+					<div class="single-gallery-image" style="background: url({{ p.photo.url }});"></div>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+</div>
+{% endblock %}

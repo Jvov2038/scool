@@ -5,14 +5,36 @@ from .models import *
 menu = [
         {'title': "О центре", 'url_name': 'about',
          'submenu': [{'title': 'Общая информация', 'url_name': 'info'},
-                     {'title': 'Попечительский совет', 'url_name': 'p_sovet'},
-                     {'title': 'Экспертный совет', 'url_name': 'e_sovet'}]},
+                     {'title': 'Попечительский совет', 'url_name': 'p_advice'},
+                     {'title': 'Экспертный совет', 'url_name': 'e_advice'},
+                     {'title': "Документы", 'url_name': 'docs'},
+                     {'title': 'Партнеры', 'url_name': 'partners'},
+                     {'title': 'Математический парк', 'url_name': 'm_park'},
+                     {'title': 'Новости', 'url_name': 'news'},
+                     {'title': 'Контакты', 'url_name': 'contacts'},
+                     {'title': 'Большие вызовы', 'url_name': 'big_challengers'}
+                     ]},
+        {'title': 'Как попасть', 'url_name': 'how_to_get',
+         'submenu': [{'title': 'Критерии отбора', 'url_name': 'selection_criteria'},
+                     {'title': 'Заявка онлайн', 'url_name': 'online_application'},
+                     {'title': 'Правила пребывания', 'url_name': 'stay_rules'},
+                     {'title': 'Условия размещения', 'url_name': 'accommodation_conditions'},
+                     {'title': 'Памятка для родителей', 'url_name': 'memo_for_parents'},
+                     {'title': 'Необходимые документы', 'url_name': 'required_docs'},
+                     {'title': 'Часто задаваемые вопросы', 'url_name': 'FAQ'},
+                     {'title': 'Лекториум', 'url_name': 'lecture_hall'}
+                     ]},
+        {'title': 'Педагогам', 'url_name': 'teachers',
+         'submenu': [{'title': 'Программы', 'url_name': 'programs'},
+                     {'title': 'Методическое сопровождение', 'url_name': 'methodological_support'}
+                     ]},
         {'title': "Добавить документ", 'url_name': 'add_page'},
-        {'title': "Программы", 'url_name': 'programs',
-         'submenu': [{'title': 'Сириус Лето', 'url_name': 'sirius'},
-                     {'title': 'Большие вызовы', 'url_name': 'big_challengers'},
-                     {'title': 'Всеросийская олимпиада школьников', 'url_name': 'olimpiada'}]},
-        {'title': "Документы", 'url_name': 'docs'}
+        {'title': 'Программы', 'url_name': 'programs',
+         'submenu': [{'title': 'Наука', 'url_name': 'science_program'},
+                     {'title': 'Спорт', 'url_name': 'sports_program'},
+                     {'title': 'Культура', 'url_name': 'culture_program'}
+                     ]},
+
         ]
 
 
@@ -23,7 +45,7 @@ class DataMixin:
 
         user_menu = menu.copy()
         if not self.request.user.is_authenticated:
-            user_menu.pop(1)
+            user_menu.pop(3)
 
         context['menu'] = user_menu
 

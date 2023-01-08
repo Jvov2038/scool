@@ -1,0 +1,72 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <script>
+        window.onload = function(){
+            let url = window.location.href;
+            url = `${url[url.length-1] == '/' ? url.slice(0, -1) : url}#metka`;
+            if(url.split('#').length < 3) {
+                window.location.replace(url);
+            }
+        }
+    </script>
+    <!-- recent_news_area_start  -->
+    <div class="recent_news_area section__padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                        <p id="metka"></p>
+                    <div class="section_title text-center mb-70">
+                        <h3 class="mb-45">{{ title }}</h3>
+                        <p>Здесь можно поставить теги</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for p in posts %}
+                    {% if p.cat_id == 1 %}
+                <div class="col-md-6">
+                    <div class="single__news">
+                        <div class="thumb">
+                            <a href="{{ p.get_absolute_url }}">
+                                <img src="{{ p.photo.url }}" alt="">
+                            </a>
+                            <span class="badge">{{ p.cat }}</span>
+                        </div>
+                        <div class="news_info">
+                            <a href="{{ p.get_absolute_url }}">
+                                <h4>{{ p.title }}</h4>
+                            </a>
+                            <p class="d-flex align-items-center"> <span><i class="flaticon-calendar-1"></i> {{p.time_update|date:"d-m-Y H:i:s"}}</span>
+                            <span> <i class="flaticon-comment"></i> 01 comments</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+           <nav class="blog-pagination justify-content-center d-flex">
+        <ul class="pagination">
+            <li class="page-item">
+                <a href="#" class="page-link" aria-label="Previous">
+                    <i class="ti-angle-left"></i>
+                </a>
+            </li>
+            {% for p in paginator.page_range %}
+            <li class="page-item active">
+                <a href="?page={{ p }}" class="page-link">{{ p }}</a>
+            </li>
+            {% endfor %}
+            <li class="page-item">
+                <a href="#" class="page-link" aria-label="Next">
+                    <i class="ti-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    </div>
+
+    <!-- recent_news_area_end  -->
+{% endblock %}

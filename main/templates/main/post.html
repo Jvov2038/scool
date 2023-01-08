@@ -13,12 +13,6 @@
                         <div class="feature-img"><img class="img-fluid"  src="{{post.photo.url}}"></div>
                         {% endif %}
 
-                        {% for p in paginator.page_range %}
-                        <li class="page-num">
-                            <a href="?page={{ p }}">{{ p }}</a>
-                        </li>
-                        {% endfor %}
-
                         {{post.content|linebreaks}}
                 </div>
                <div class="navigation-top">
@@ -51,8 +45,8 @@
                            </div>
                            <div class="detials">
                               <p>Prev Post</p>
-                              <a href="#">
-                                 <h4>{{ post.get_previous_by_time_create.title }}</h4>
+                              <a href="{{ post.get_previous_by_time_create.get_absolute_url }}">
+                                 <h4>{{ post.get_previous_by_time_create.title|truncatewords:5 }}</h4>
                               </a>
                            </div>
                         </div>
@@ -60,8 +54,8 @@
                            class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
                            <div class="detials">
                               <p>Next Post</p>
-                              <a href="#">
-                                 <h4>{{ post.get_next_by_time_create.title }}</h4>
+                              <a href="{{ post.get_next_by_time_create.get_absolute_url }}">
+                                 <h4>{{ post.get_next_by_time_create.title|truncatewords:5 }}</h4>
                               </a>
                            </div>
                            <div class="arrow">
@@ -209,99 +203,47 @@
                      <form action="#">
                         <div class="form-group">
                            <div class="input-group mb-3">
-                              <input type="text" class="form-control" placeholder='Search Keyword'
-                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
+                              <input type="text" class="form-control" placeholder='Ключевые слова'
+                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ключевые слова'">
                               <div class="input-group-append">
                                  <button class="btn" type="button"><i class="ti-search"></i></button>
                               </div>
                            </div>
                         </div>
                         <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                           type="submit">Search</button>
+                           type="submit">Поиск</button>
                      </form>
                   </aside>
                   <aside class="single_sidebar_widget post_category_widget">
-                     <h4 class="widget_title">Category</h4>
+                     <h4 class="widget_title">Категории</h4>
                      <ul class="list cat-list">
+                        {% for c in cats %}
                         <li>
-                           <a href="#" class="d-flex">
-                              <p>Resaurant food</p>
-                              <p>(37)</p>
+                           <a href="{{ c.get_absolute_url }}" class="d-flex">
+                              <p>{{ c.name }}</p>
                            </a>
                         </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Travel news</p>
-                              <p>(10)</p>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Modern technology</p>
-                              <p>(03)</p>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Product</p>
-                              <p>(11)</p>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Inspiration</p>
-                              <p>(21)</p>
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#" class="d-flex">
-                              <p>Health Care</p>
-                              <p>(21)</p>
-                           </a>
-                        </li>
+                        {% endfor %}
                      </ul>
                   </aside>
-                  <aside class="single_sidebar_widget popular_post_widget">
-                     <h3 class="widget_title">Recent Post</h3>
-                     <div class="media post_item">
-                        <img src="img/post/post_1.png" alt="post">
-                        <div class="media-body">
-                           <a href="single-blog.html">
-                              <h3>From life was you fish...</h3>
-                           </a>
-                           <p>January 12, 2019</p>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <img src="img/post/post_2.png" alt="post">
-                        <div class="media-body">
-                           <a href="single-blog.html">
-                              <h3>The Amazing Hubble</h3>
-                           </a>
-                           <p>02 Hours ago</p>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <img src="img/post/post_3.png" alt="post">
-                        <div class="media-body">
-                           <a href="single-blog.html">
-                              <h3>Astronomy Or Astrology</h3>
-                           </a>
-                           <p>03 Hours ago</p>
-                        </div>
-                     </div>
-                     <div class="media post_item">
-                        <img src="img/post/post_4.png" alt="post">
-                        <div class="media-body">
-                           <a href="single-blog.html">
-                              <h3>Asteroids telescope</h3>
-                           </a>
-                           <p>01 Hours ago</p>
-                        </div>
-                     </div>
-                  </aside>
+
+                   <aside class="single_sidebar_widget popular_post_widget">
+                            <h3 class="widget_title">Последние новости</h3>
+                            {% for p in posts %}
+                              <div class="media post_item">
+                                <img class="logo-img" src="{{ p.photo.url }}"  alt="post">
+                                <div class="media-body">
+                                    <a href="{{ p.get_absolute_url }}">
+                                        <h3>{{ p.title|truncatewords:4 }}</h3>
+                                    </a>
+                                    <p>{{p.time_update|date:"d-m-Y H:i"}}</p>
+                                </div>
+                               </div>
+                            {% endfor %}
+                   </aside>
+
                   <aside class="single_sidebar_widget tag_cloud_widget">
-                     <h4 class="widget_title">Tag Clouds</h4>
+                     <h4 class="widget_title">Облака тегов</h4>
                      <ul class="list">
                         <li>
                            <a href="#">project</a>
@@ -330,40 +272,20 @@
                      </ul>
                   </aside>
                   <aside class="single_sidebar_widget instagram_feeds">
-                     <h4 class="widget_title">Instagram Feeds</h4>
-                     <ul class="instagram_row flex-wrap">
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_5.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_6.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_7.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_8.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_9.png" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                              <img class="img-fluid" src="img/post/post_10.png" alt="">
-                           </a>
-                        </li>
-                     </ul>
+                            <a href="gallery">
+                                <h4 class="widget_title">Фото галерея</h4>
+                            </a>
+                                <ul class="instagram_row flex-wrap">
+                                    {% for p in posts %}
+                                    <li>
+                                        <a href="{{ p.get_absolute_url }}">
+                                            <img class="img-fluid" src="{{ p.photo.url }}" alt="">
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
                   </aside>
+
                   <aside class="single_sidebar_widget newsletter_widget">
                      <h4 class="widget_title">Newsletter</h4>
                      <form action="#">

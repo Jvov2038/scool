@@ -67,7 +67,7 @@ a:hover,
 /* line 34, ../../Arafath/CL/january 2020/243.Education/HTML/scss/theme-default.scss */
 a,
 button {
-  color: #1F1F1F;
+  color: white;
   outline: medium none;
 }
 
@@ -105,7 +105,7 @@ p {
   line-height: 28px;
   color: #7d84ab;
   margin-bottom: 13px;
-  font-family: "Poppins", sans-serif;
+  font-family: arial;
 }
 
 /* line 68, ../../Arafath/CL/january 2020/243.Education/HTML/scss/theme-default.scss */
@@ -291,7 +291,7 @@ h3 {
 
 /* line 210, ../../Arafath/CL/january 2020/243.Education/HTML/scss/theme-default.scss */
 .section__padding {
-  padding-top: 200px;
+  padding-top: 50px;
   padding-bottom: 200px;
 }
 
@@ -682,7 +682,7 @@ h3 {
 .section_title h3 {
   font-size: 55px;
   font-weight: 400;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Arial", cursive;
   color: #234262;
 }
 
@@ -1025,7 +1025,7 @@ h3 {
   font-weight: 600;
   display: inline-block;
   padding: 39px 0px 39px 0px;
-  font-family: "Poppins", sans-serif;
+  font-family: Arial;
   position: relative;
   text-transform: capitalize;
 }
@@ -1326,9 +1326,24 @@ h3 {
   background-image: url(../img/banner/banner2.png);
 }
 
+/* line 4, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_slider.scss */
+.slider_bg_3 {
+  background-image: url(../img/banner/slaid1.JPG);
+}
+
+/* line 4, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_slider.scss */
+.slider_bg_4 {
+  background-image: url(../img/banner/slaid2.JPG);
+}
+
+/* line 4, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_slider.scss */
+.slider_bg_5 {
+  background-image: url(../img/banner/slaid3.JPG);
+}
+
 /* line 8, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_slider.scss */
 .slider_area .single_slider {
-  height: 960px;
+  height: 300px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -1351,7 +1366,7 @@ h3 {
 /* line 20, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_slider.scss */
 .slider_area .single_slider .slider_text h3 {
   color: #234262;
-  font-family: "Abril Fatface", cursive;
+  font-family: Arial;
   font-size: 75px;
   font-weight: 400;
   line-height: 1.16;
@@ -2441,7 +2456,7 @@ h3 {
 .footer .footer_top .footer_widget ul li {
   color: #8891a1;
   font-size: 16px;
-  line-height: 40px;
+  line-height: 30px;
 }
 
 /* line 94, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_footer.scss */
@@ -2971,7 +2986,7 @@ h3 {
 .recent_news_area .single__news .news_info h4 {
   font-size: 25px;
   line-height: 1.4;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Arial", cursive;
   color: #234262;
   margin-bottom: 31px;
 }
@@ -6808,5 +6823,9 @@ h6 {
   margin-right: 10px;
   font-size: 12px;
 }
+.logo-img {
+  width: 80px;
+  height: 80px;
+  }
 
 /*# sourceMappingURL=style.css.map */
