@@ -32,6 +32,7 @@ html, body {
 
 #container {
 	position: fixed;
+	z-index: 999999;
 	width: 340px;
 	height: 280px;
 	top: 50%;
@@ -103,6 +104,22 @@ input[type=password] {
 	margin-left: 18px;
 	width: 290px;
 	height: 35px;
+	border: 1px solid #c7d0d2;
+	border-radius: 2px;
+	box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8;
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	transition: all .4s ease;
+}
+
+ textarea[id="id_content"] {
+	color: #777;
+	padding-left: 10px;
+	margin: 0px;
+	margin-top: 10px;
+	margin-left: 50px;
+	width: 600px;
+	height: 200px;
 	border: 1px solid #c7d0d2;
 	border-radius: 2px;
 	box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8;
@@ -239,6 +256,15 @@ pa {
   font-family: arial;
 }
 
+padd {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #7d84ab;
+  margin-bottom: 13px;
+  font-family: arial;
+}
+
 #lowera {
 	background: #232637;
 	width: 100%;
@@ -249,3 +275,38 @@ pa {
 	border-bottom-right-radius: 3px;
 	border-bottom-left-radius: 3px;
 }
+
+#container_add {
+	position: center;
+	width: 1000px;
+	height: 500px;
+	top: 50%;
+	left: 50%;
+	margin-top: 100px;
+	margin-left: 150px;
+	background: #fff;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+	-webkit-animation-name: bounceIn;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-timing-function: linear;
+	-moz-animation-name: bounceIn;
+	-moz-animation-fill-mode: both;
+	-moz-animation-duration: 1s;
+	-moz-animation-iteration-count: 1;
+	-moz-animation-timing-function: linear;
+	animation-name: bounceIn;
+	animation-fill-mode: both;
+	animation-duration: 1s;
+	animation-iteration-count: 1;
+	animation-timing-function: linear;
+}
+
+label_add {
+    display: inline-block;
+    margin-bottom: .5rem;
+    margin-right: 15px;
+    margin-left: 20px

@@ -4,14 +4,15 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django.template.defaultfilters import slugify
 
 from .models import *
 
 
 class AddPostForm(forms.ModelForm):
-    title = forms.CharField(label='Заголовок', widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Заголовок'}))
-    slug = forms.URLField(label='URL', widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'URL'}))
+    title = forms.CharField(label='Заголовок', widget=forms.TextInput(attrs={'class': 'form-input'}))
     photo = forms.ImageField(label='Фото', widget=forms.FileInput(attrs={'class': 'form-input'}))
+
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -19,10 +20,10 @@ class AddPostForm(forms.ModelForm):
 
     class Meta:
         model = Article
-        fields = ['title', 'slug', 'content', 'photo', 'is_published', 'cat']
+        fields = ['title', 'content', 'photo', 'is_published', 'cat']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-input'}),
-            'content': forms.Textarea(attrs={'cols': 60, 'rows': 10, 'placeholder': 'Содержание документа'}),
+            'content': forms.Textarea(attrs={'class': 'form-input', 'cols': 60, 'rows': 10}),
         }
 
     def clean_title(self):

@@ -8,11 +8,8 @@ menu = [
                      {'title': 'Попечительский совет', 'url_name': 'p_advice'},
                      {'title': 'Экспертный совет', 'url_name': 'e_advice'},
                      {'title': "Документы", 'url_name': 'docs'},
-                     {'title': 'Партнеры', 'url_name': 'partners'},
-                     {'title': 'Математический парк', 'url_name': 'm_park'},
                      {'title': 'Новости', 'url_name': 'news'},
                      {'title': 'Контакты', 'url_name': 'contacts'},
-                     {'title': 'Большие вызовы', 'url_name': 'big_challengers'}
                      ]},
         {'title': 'Как попасть', 'url_name': 'how_to_get',
          'submenu': [{'title': 'Критерии отбора', 'url_name': 'selection_criteria'},

@@ -43,6 +43,7 @@ class RegisterUser(DataMixin, CreateView):
         login(self.request, user)
         return redirect('home')
 
+
 class LoginUser(DataMixin, LoginView):
     form_class = LoginUserForm
     template_name = 'main/login.html'
@@ -118,7 +119,6 @@ def docs(request):
     return HttpResponse('Документы')
 
 
-
 def partners(request):
     return HttpResponse('Партнеры')
 
@@ -139,8 +139,16 @@ class News(DataMixin, ListView):
         return dict(list(context.items()) + list(c_def.items()))
 
 
-def contacts(request):
-    return HttpResponse('Контакты')
+class Contacts(DataMixin, ListView):
+    paginate_by = 3
+    model = Article
+    template_name = 'main/contacts.html'
+    context_object_name = 'posts'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Контакты")
+        return dict(list(context.items()) + list(c_def.items()))
 
 
 def big_challengers(request):

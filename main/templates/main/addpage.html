@@ -1,37 +1,39 @@
-{% extends 'main/base.html' %}
-{% block content %}
-   <!-- latest_coures_area_start  -->
-            <div class="container">
-                <div class="row justify-content-end">
-                    <div class="col-lg-7">
-                        <div class="admission_form">
-                            <h3>{{ title }}</h3>
-                            <form action="{% url 'add_page' %}" method="post" enctype="multipart/form-data">
-                                {% csrf_token %}
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>{{ title }}</title>
+		<link rel="stylesheet" href="../../static/main2/css/css_auto/reset.css">
+		<link rel="stylesheet" href="../../static/main2/css/css_auto/animate.css">
+		<link rel="stylesheet" href="../../static/main2/css/css_auto/styles.css">
+		<link rel="stylesheet" href="../../static/main2/css/style.css">
+		<link rel="stylesheet" href="../../static/main2/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="../../static/main2/css/owl.carousel.min.css">
+    	<link rel="stylesheet" href="../../static/main2/css/magnific-popup.css">
+    	<link rel="stylesheet" href="../../static/main2/css/font-awesome.min.css">
+    	<link rel="stylesheet" href="../../static/main2/css/themify-icons.css">
+    	<link rel="stylesheet" href="../../static/main2/css/nice-select.css">
+    	<link rel="stylesheet" href="../../static/main2/css/flaticon.css">
+    	<link rel="stylesheet" href="../../static/main2/css/gijgo.css">
+    	<link rel="stylesheet" href="../../static/main2/css/animate.css">
+    	<link rel="stylesheet" href="../../static/main2/css/slicknav.css">
 
-                                <div class="row">
-                                    {% for f in form %}
-                                    <div class="col-md-6">
-                                        <div class="single_input">
-                                            <div class="form-error">{{ form.non_field_errors }}</div>
+	</head>
+	<body>
+		<div id="container_add">
+			<form action="{% url 'add_page' %}" method="post" enctype="multipart/form-data">
+				{% csrf_token %}
 
-                                            <!--input type="text" placeholder={{f}}-->
-                                            {{ f }}
-                                            <div class="form-error">{{ f.errors }}</div>
+				<div class="form-error">{{ form.non_field_errors }}</div>
+				{% for f in form %}
+					<padd><label_add for="name">{{ f.label }}: </label_add>{{ f }}</padd>
+					<div class="form-error">{{ f.errors }}</div>
+				{% endfor %}
+				<div id="lower">
+					<input type="submit" value="Добавить">
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
 
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                    <div class="col-md-12">
-                                        <div class="apply_btn">
-                                            <button class="boxed-btn3" type="submit">Добавить документ</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    <!--/ latest_coures_area_end -->
-{% endblock %}

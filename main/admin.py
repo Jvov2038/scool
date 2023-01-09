@@ -1,15 +1,22 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 
 from .models import *
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'photo', 'time_create', 'is_published')
+    list_display = ('id', 'title', 'get_photo', 'time_create', 'is_published')
     list_display_links = ('id', 'title')
     search_fields = ('title', 'content')
     list_editable = ('is_published',)
     list_filter = ('is_published', 'time_create')
     prepopulated_fields = {"slug": ("title",)}
+
+    def get_photo(self, object):
+        if object.photo:
+            return mark_safe(f"<img src='{object.photo.url}' width=50>")
+
+    get_photo.short_description = 'Фото'
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -20,21 +27,30 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class TeacherAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'photo', 'position_at_work')
+    list_display = ('id', 'name', 'get_photo', 'position_at_work')
     list_display_links = ('id', 'name', 'position_at_work')
     search_fields = ('name',)
     prepopulated_fields = {"slug": ("name",)}
+
+    def get_photo(self, object):
+        if object.photo:
+            return mark_safe(f"<img src='{object.photo.url}' width=50>")
+
+    get_photo.short_description = 'Фото'
 
 
 class HomeWorkAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'pdffile', 'executor')
     list_display_links = ('id', 'title', 'executor')
     search_fields = ('title',)
+    list_filter = ('is_published', 'time_create')
     prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Teacher, TeacherAdmin)
-admin.site.register(HomeWork)
+admin.site.register(HomeWork, HomeWorkAdmin)
 
+admin.site.site_title = 'Администрирование сайта'
+admin.site.site_header = 'Администрирование сайта'
