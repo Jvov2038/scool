@@ -26,19 +26,6 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 
 
-class TeacherAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'get_photo', 'position_at_work')
-    list_display_links = ('id', 'name', 'position_at_work')
-    search_fields = ('name',)
-    prepopulated_fields = {"slug": ("name",)}
-
-    def get_photo(self, object):
-        if object.photo:
-            return mark_safe(f"<img src='{object.photo.url}' width=50>")
-
-    get_photo.short_description = 'Фото'
-
-
 class HomeWorkAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'pdffile', 'executor')
     list_display_links = ('id', 'title', 'executor')
@@ -47,9 +34,11 @@ class HomeWorkAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
 
 
+
+
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Teacher, TeacherAdmin)
 admin.site.register(HomeWork, HomeWorkAdmin)
 
 admin.site.site_title = 'Администрирование сайта'
