@@ -34,9 +34,6 @@ class HomeWorkAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
 
 
-
-
-
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(HomeWork, HomeWorkAdmin)
