@@ -21,7 +21,7 @@
 /* 1. Theme default css */
 /* line 5, ../../Arafath/CL/january 2020/243.Education/HTML/scss/theme-default.scss */
 body {
-  font-family: Arial;
+  font-family: Gothic;
   font-weight: normal;
   font-style: normal;
 }
@@ -73,7 +73,7 @@ button {
 
 /* line 39, ../../Arafath/CL/january 2020/243.Education/HTML/scss/theme-default.scss */
 h1, h2, h3, h4, h5 {
-  font-family: Arial;
+  font-family: Gothic;
   color: #234262;
 }
 
@@ -105,7 +105,7 @@ p {
   line-height: 28px;
   color: #7d84ab;
   margin-bottom: 13px;
-  font-family: arial;
+  font-family: Gothic;
 }
 
 /* line 68, ../../Arafath/CL/january 2020/243.Education/HTML/scss/theme-default.scss */
@@ -682,7 +682,7 @@ h3 {
 .section_title h3 {
   font-size: 55px;
   font-weight: 400;
-  font-family: "Arial", cursive;
+  font-family: Gothic, cursive;
   color: #234262;
 }
 
@@ -1025,7 +1025,7 @@ h3 {
   font-weight: 600;
   display: inline-block;
   padding: 39px 0px 39px 0px;
-  font-family: Arial;
+  font-family: Gothic;
   position: relative;
   text-transform: none;
 }
@@ -1366,7 +1366,7 @@ h3 {
 /* line 20, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_slider.scss */
 .slider_area .single_slider .slider_text h3 {
   color: #234262;
-  font-family: Arial;
+  font-family: Gothic;
   font-size: 75px;
   font-weight: 400;
   line-height: 1.16;
@@ -2310,7 +2310,7 @@ h3 {
 
 /* line 397, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_offers.scss */
 .gj-picker-md {
-  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-family: Gothic;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: .04em;
@@ -2370,7 +2370,7 @@ h3 {
   color: #fff;
   text-transform: none;
   margin-bottom: 25px;
-  font-family: Arial;
+  font-family: Gothic;
 }
 
 @media (max-width: 767px) {
@@ -2463,7 +2463,7 @@ h3 {
 .footer .footer_top .footer_widget ul li a {
   color: #7A838B;
   font-weight: 300;
-  font-family: Arial;
+  font-family: Gothic;
 }
 
 /* line 98, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_footer.scss */
@@ -2488,7 +2488,7 @@ h3 {
   border: none;
   background: #fff;
   border-radius: 0px;
-  font-family: Arial;
+  font-family: Gothic;
 }
 
 /* line 118, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_footer.scss */
@@ -2715,6 +2715,7 @@ h3 {
   /* line 3, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_program.scss */
   .popular_program_area .single__program {
     margin-bottom: 50px;
+    position: relative;
   }
 }
 
@@ -2726,8 +2727,7 @@ h3 {
 /* line 13, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_program.scss */
 .popular_program_area .single__program .program__content {
   background: #f8fafe;
-  padding: 55px 40px 60px 40px;
-  position: relative;
+  padding: 5px 40px 60px 40px;
 }
 
 /* line 17, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_program.scss */
@@ -2763,7 +2763,7 @@ h3 {
 .popular_program_area .single__program .program__content h4 {
   font-size: 25px;
   color: #232637;
-  font-family: "Abril Fatface", cursive;
+  font-family: Gothic, cursive;
   font-weight: 400;
   margin-top: 23px;
 }
@@ -2929,6 +2929,15 @@ h3 {
   border-radius: 10px 10px 0 0;
 }
 
+.tab-content .single__program .program_thumb {
+  overflow: hidden;
+  position: relative;
+  -webkit-border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0 0;
+  padding-bottom: 10px;
+}
+
 /* line 8, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_news.scss */
 .recent_news_area .single__news .thumb img {
   width: 100%;
@@ -2941,6 +2950,19 @@ h3 {
 
 /* line 13, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_news.scss */
 .recent_news_area .single__news .thumb .badge {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #ebb830;
+  padding: 12px 40px;
+  display: inline-block;
+  z-index: 9;
+  font-size: 13px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.tab-content .single__program .program_thumb .badge {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -2986,7 +3008,7 @@ h3 {
 .recent_news_area .single__news .news_info h4 {
   font-size: 25px;
   line-height: 1.4;
-  font-family: "Arial", cursive;
+  font-family: "Gothic", cursive;
   color: #234262;
   margin-bottom: 31px;
 }
@@ -6827,5 +6849,6 @@ h6 {
   width: 80px;
   height: 80px;
 }
+
 
 /*# sourceMappingURL=style.css.map */

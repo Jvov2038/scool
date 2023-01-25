@@ -22,11 +22,11 @@ menu = [
                      {'title': 'Лекториум', 'url_name': 'lecture_hall'}
                      ]},
         {'title': 'Педагогам', 'url_name': 'teachers',
-         'submenu': [{'title': 'Программы', 'url_name': 'programs'},
+         'submenu': [{'title': 'Программы', 'url_name': 'educational_programs'},
                      {'title': 'Методическое сопровождение', 'url_name': 'methodological_support'}
                      ]},
         {'title': "Добавить документ", 'url_name': 'add_page'},
-        {'title': 'Программы', 'url_name': 'programs',
+        {'title': 'Программы', 'url_name': 'educational_programs',
          'submenu': [{'title': 'Наука', 'url_name': 'science_program'},
                      {'title': 'Спорт', 'url_name': 'sports_program'},
                      {'title': 'Культура', 'url_name': 'culture_program'}
@@ -38,7 +38,7 @@ menu = [
 class DataMixin:
     def get_user_context(self, **kwargs):
         context = kwargs
-        cats = Category.objects.annotate(Count('article'))
+        cats = Category.objects.all()
 
         user_menu = menu.copy()
         if not self.request.user.is_authenticated:

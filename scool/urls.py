@@ -22,6 +22,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
+    path('captcha/', include('captcha.urls')),
 ]
 
 handler404 = pageNotFound

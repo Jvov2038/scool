@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+    <div class="event_details_area section__padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="single_event d-flex align-items-center">
+                        <div class="thumb">
+                            {% if prog.photo %}
+                            <img src="{{ prog.photo.url }}" alt="">
+                            {% endif %}
+                            <div class="date text-center">
+                                <h4>{{ prog.time_update|date:"d" }}</h4>
+                                <span>{{ prog.time_update|date:"m-Y" }}</span>
+                            </div>
+                        </div>
+                        <div class="event_details_info">
+                            <div class="event_info">
+                                <a href="#">
+                                    <h4>{{ prog.title }}</h4>
+                                 </a>
+                                <p><span> <i class="flaticon-clock"></i>{{ prog.time_update|date:"H:i" }}</span> <span> <i class="flaticon-calendar"></i> {{ prog.time_update|date:"d-m-Y" }}</span> <span> <i class="flaticon-placeholder"></i> AH Oditoriam</span> </p>
+                            </div>
+                            <p class="event_info_text">{{ prog.content }}</p>
+                            <a href="#" class="boxed-btn3">Book a seat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

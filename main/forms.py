@@ -1,10 +1,12 @@
 import this
 
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from users.models import User
 from django.core.exceptions import ValidationError
 from django.template.defaultfilters import slugify
+from phonenumber_field.modelfields import PhoneNumberField
+from captcha.fields import CaptchaField
 
 from .models import *
 
@@ -12,7 +14,7 @@ from .models import *
 class AddPostForm(forms.ModelForm):
     title = forms.CharField(label='Заголовок', widget=forms.TextInput(attrs={'class': 'form-input'}))
     photo = forms.ImageField(label='Фото', widget=forms.FileInput(attrs={'class': 'form-input'}))
-
+    captcha = CaptchaField()
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -39,6 +41,7 @@ class RegisterUserForm(UserCreationForm):
     email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-input'}))
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
     password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    captcha = CaptchaField()
 
     class Meta:
         model = User
@@ -48,5 +51,22 @@ class RegisterUserForm(UserCreationForm):
 class LoginUserForm(AuthenticationForm):
     username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
     password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
+    captcha = CaptchaField()
+
+
+class PersonalAreaForm(UserChangeForm):
+    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Имя'}))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Фамилия'}))
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Имя пользователя',
+                                                             'readonly': True}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'single-input', 'placeholder': 'Email адрес',
+                                                            'readonly': True}))
+    address = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Домашний адрес'}))
+    phone_number = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Телефон'}))
+    image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'single-input'}))
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'username', 'email', 'address', 'phone_number', 'image')
 
 

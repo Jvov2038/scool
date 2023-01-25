@@ -1,4 +1,5 @@
 {% extends 'main/base.html' %}
+{% load static %}
 
 {% block content %}
     <!-- recent_news_area_start  -->
@@ -14,17 +15,17 @@
             </div>
             <div class="row">
                 {% for p in posts %}
-                    {% if p.cat_id == 1 %}
+                {% if p.is_published == True %}
                 <div class="col-md-6">
                     <div class="single__news">
                         <div class="thumb">
-                            <a href="{{ p.get_absolute_url }}">
-                                <img src="{{ p.photo.url }}" alt="">
+                            <a href="">
+                                <iframe width="560" height="315" src="{{ p.URL }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </a>
                             <span class="badge">{{ p.cat }}</span>
                         </div>
                         <div class="news_info">
-                            <a href="{{ p.get_absolute_url }}">
+                            <a href="">
                                 <h4>{{ p.title }}</h4>
                             </a>
                             <p class="d-flex align-items-center"> <span><i class="flaticon-calendar-1"></i> {{p.time_update|date:"d-m-Y H:i:s"}}</span>
@@ -33,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                    {% endif %}
+                {% endif %}
                 {% endfor %}
             </div>
         </div>

@@ -1,13 +1,13 @@
 from django.contrib.auth import logout, login
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.views import LoginView
-from django.http import HttpResponse, HttpResponseNotFound, Http404
+from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .forms import *
+from main.forms import *
 from .models import *
 from .utils import *
 
@@ -30,13 +30,12 @@ class MainHome(DataMixin, ListView):
 class RegisterUser(DataMixin, CreateView):
     form_class = RegisterUserForm
     template_name = 'main/register.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('personal_area')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title='Регистрация')
         return dict(list(context.items()) + list(c_def.items()))
-
 
     def form_valid(self, form):
         user = form.save()
@@ -54,7 +53,7 @@ class LoginUser(DataMixin, LoginView):
         return dict(list(context.items())+list(c_def.items()))
 
     def get_success_url(self):
-        return reverse_lazy('home')
+        return reverse_lazy('personal_area')
 
 
 def logout_user(request):
@@ -101,6 +100,50 @@ class About(DataMixin, ListView):
 
     def get_queryset(self):
         return Article.objects.filter(is_published=True)
+
+
+def personal_area(request):
+    if request.method == 'POST':
+        form = PersonalAreaForm(instance=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('personal_area'))
+    else:
+        form = PersonalAreaForm(instance=request.user)
+    context = {'form': form}
+    return render(request, 'main/personal_area.html', context)
+
+
+#Также является пунктом главного меню №5#
+class Program(DataMixin, ListView):
+    paginate_by = 10
+    model = Prog
+    template_name = 'main/educational_programs.html'
+    context_object_name = 'progs'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Образовательные программы')
+        return dict(list(context.items()) + list(c_def.items()))
+
+
+class LectureHall(DataMixin, ListView):
+    paginate_by = 10
+    model = Lecture
+    template_name = 'main/lecture_hall.html'
+    context_object_name = 'posts'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Лекториум")
+        return dict(list(context.items()) + list(c_def.items()))
+
+
+class ShowProgram(DetailView):
+    model = Prog
+    template_name = 'main/program.html'
+    slug_url_kwarg = 'program_slug'
+
 
 
 def info(request):
@@ -188,18 +231,11 @@ def faq(request):
     return HttpResponse('Часто задаваемые вопросы')
 
 
-def lecture_hall(request):
-    return HttpResponse('Лекториум')
-
 
 #Пункт главного меню №3#
 def teachers(request):
     return HttpResponse('Педагогам')
 
-
-#Также является пунктом главного меню №5#
-def programs(request):
-    return HttpResponse('Программы')
 
 
 def methodological_support(request):
@@ -218,17 +254,6 @@ def culture_program(request):
     return HttpResponse('Культура')
 
 
-
-
-
-
-
-
-
-
-
-
-
 class MainCategory(DataMixin, ListView):
     paginate_by = 3
     model = Article
@@ -244,39 +269,6 @@ class MainCategory(DataMixin, ListView):
                                       cat_selected=context['posts'][0].cat_id)
         return dict(list(context.items()) + list(c_def.items()))
 
-#def index(request):
-#    posts = Article.objects.all()
-#    cats = Category.objects.all()
-
-#    context = {
-#            'cats': cats,
-#            'posts': posts,
-#            'menu': menu,
-#            'title': 'Главная страница',
-#            'cat_selected': 0,
-#    }
-#    return render(request, 'main/index.html', context=context)
-
-
-#def about(request):
-#    posts = Article.objects.all()
-#    return render(request, 'main/about.html', {'menu': menu, 'title': 'О центре'})
-
-
-#def addpage(request):
-#    if request.method == 'POST':
-#        form = AddPostForm(request.POST, request.FILES)
-#        if form.is_valid():
-#            try:
-#                form.save()
-#                return redirect('home')
-#            except:
-#                form.add_error(None, 'Ошибка добавления статьи')
-#
-#    else:
-#        form = AddPostForm()
-#    return render(request, 'main/addpage.html', {'form': form, 'menu': menu, 'title': 'Добавление статьи'})
-
 
 class AddPage(LoginRequiredMixin, DataMixin, CreateView):
     form_class = AddPostForm
@@ -288,45 +280,6 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title="Добавление документа")
         return dict(list(context.items()) + list(c_def.items()))
-
-
-
-
-
-
-#def show_post(request, post_slug):
-#    post = get_object_or_404(Article, slug=post_slug)
-#
-#    context = {
-#        'post': post,
-#        'menu': menu,
-#        'title': post.title,
-#        'cat_selected': post.cat_id,
-#    }
-#    return render(request, 'main/post.html', context=context)
-
-
-#def show_category(request, cat_id):
-#    posts = Article.objects.filter(cat_id=cat_id)
-#    cats = Category.objects.all()
-#
-#    if len(posts) == 0:
-#        raise Http404()
-#
-
-#    context = {
-#        'cats': cats,
-#        'posts': posts,
-#        'menu': menu,
-#        'title': 'Отображение по рубрикам',
-#        'cat_selected': cat_id,
-#    }
-#    return render(request, 'main/index.html', context=context)
-
-
-
-
-
 
 
 def pageNotFound(request, exception):

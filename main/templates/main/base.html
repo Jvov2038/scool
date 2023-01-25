@@ -1,7 +1,7 @@
 {% load static %}
 {% load main_tags %}
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -46,15 +46,17 @@
                                     <p><span>+7(928)-686-44-77 </span> | <span> vardasheva2017@yandex.ru</span></p>
                                 </div>
                                 <div class="Appointment">
-                                    <div class="genric-btn success radius">
-                                        <h4 data-scroll-nav='1' href="#">Подать заявку</h4>
+                                    {% if request.user.is_authenticated %}
+                                    <div class="genric-btn success medium">
+                                        <a href="{% url 'educational_programs' %}">Подать заявку</a>
                                     </div>
                                 </div>
                                 <div class="text_wrap">
-                                    {% if request.user.is_authenticated %}
-                                    <p>{{ user.username }}<a href="{% url 'logout' %}">Выйти</a></p>
+                                    <p><a href="{% url 'personal_area' %}">{{ user.username }}</a><a href="{% url 'logout' %}">Выйти</a></p>
                                     {% else %}
-                                    <p><a href="{% url 'register' %}"> <i class="ti-user"></i> Регистрация</a> <a href="{% url 'login' %}">Личный кабинет</a></p>
+                                </div>
+                                <div class="text_wrap">
+                                    <p><a href="{% url 'register' %}">Регистрация</a><a href="{% url 'login' %}">Личный кабинет</a></p>
                                     {% endif %}
                                 </div>
                             </div>
@@ -104,87 +106,6 @@
         </div>
     </header>
     <!-- header-end -->
-    <!-- slider_area_start -->
-    <div class="slider_area">
-        <div class="slider_active owl-carousel">
-            <!-- single_carouse -->
-            <div class="single_slider  d-flex align-items-center slider_bg_1">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>Какой то лозунг<br></h3>
-                                <a href="#" class="boxed-btn3">Зарегистрироваться</a>
-                                <a href="#" class="boxed-btn4">Выбрать программу</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/ single_carouse -->
-            <!-- single_carouse -->
-            <div class="single_slider  d-flex align-items-center slider_bg_2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>Следующий лозунг<br></h3>
-                                <a href="#" class="boxed-btn3">Зарегистрироваться</a>
-                                <a href="#" class="boxed-btn4">Выбрать программу</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/ single_carouse -->
-            <!-- single_carouse -->
-            <div class="single_slider  d-flex align-items-center slider_bg_3">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>Еще один лозунг<br></h3>
-                                <a href="#" class="boxed-btn3">Зарегистрироваться</a>
-                                <a href="#" class="boxed-btn4">Выбрать программу</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/ single_carouse -->
-            <!-- single_carouse -->
-            <div class="single_slider  d-flex align-items-center slider_bg_4">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>Снова высказывание<br></h3>
-                                <a href="#" class="boxed-btn3">Зарегистрироваться</a>
-                                <a href="#" class="boxed-btn4">Выбрать программу</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/ single_carouse -->
-            <!-- single_carouse -->
-            <div class="single_slider  d-flex align-items-center slider_bg_5">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="slider_text ">
-                                <h3>Лозунг про учебу <br></h3>
-                                <a href="#" class="boxed-btn3">Зарегистрироваться</a>
-                                <a href="#" class="boxed-btn4">Выбрать программу</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/ single_carouse -->
-        </div>
-    </div>
-    <!-- slider_area_end -->
 
 {% block content %}
 {% endblock %}

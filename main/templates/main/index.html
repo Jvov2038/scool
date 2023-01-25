@@ -1,6 +1,95 @@
 {% extends 'main/base.html' %}
-
 {% block content %}
+    <!-- slider_area_start -->
+    <div class="slider_area">
+        <div class="slider_active owl-carousel">
+            <!-- single_carouse -->
+            <div class="single_slider  d-flex align-items-center slider_bg_1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text ">
+                                <h3>Какой то лозунг<br></h3>
+                                {% if request.user.is_authenticated %}
+                                <a href="{% url 'educational_programs' %}" class="boxed-btn4">Выбрать программу</a>
+                                {% else %}
+                                 <a href="{% url 'register' %}" class="boxed-btn3">Зарегистрироваться</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ single_carouse -->
+            <!-- single_carouse -->
+            <div class="single_slider  d-flex align-items-center slider_bg_2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text ">
+                                <h3>Следующий лозунг<br></h3>
+                                {% if request.user.is_authenticated %}
+                                <a href="{% url 'educational_programs' %}" class="boxed-btn4">Выбрать программу</a>
+                                {% else %}
+                                 <a href="{% url 'register' %}" class="boxed-btn3">Зарегистрироваться</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ single_carouse -->
+            <!-- single_carouse -->
+            <div class="single_slider  d-flex align-items-center slider_bg_3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text ">
+                                <h3>Еще один лозунг<br></h3>
+                                 {% if request.user.is_authenticated %}
+                                 <a href="{% url 'educational_programs' %}" class="boxed-btn4">Выбрать программу</a>
+                                 {% else %}
+                                 <a href="{% url 'register' %}" class="boxed-btn3">Зарегистрироваться</a>
+                                 {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ single_carouse -->
+            <!-- single_carouse -->
+            <div class="single_slider  d-flex align-items-center slider_bg_4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text ">
+                                <h3>Снова высказывание<br></h3>
+                                <a href="#" class="boxed-btn3">Зарегистрироваться</a>
+                                <a href="#" class="boxed-btn4">Выбрать программу</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ single_carouse -->
+            <!-- single_carouse -->
+            <div class="single_slider  d-flex align-items-center slider_bg_5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="slider_text ">
+                                <h3>Лозунг про учебу <br></h3>
+                                <a href="#" class="boxed-btn3">Зарегистрироваться</a>
+                                <a href="#" class="boxed-btn4">Выбрать программу</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ single_carouse -->
+        </div>
+    </div>
+    <!-- slider_area_end -->
   <!--================Blog Area =================-->
     <section class="blog_area section-padding">
         <div class="container">
