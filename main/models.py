@@ -116,12 +116,13 @@ class Prog(models.Model):
     title = models.CharField(max_length=255, verbose_name="Заголовок")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
     content = models.TextField(blank=True, verbose_name="Содержание")
-    photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фото", null=True)
-    pdffile = models.FileField(upload_to="pdf/%Y/%m/%d/", verbose_name="PDF", null=True)
+    photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фото", null=True, blank=True)
+    pdffile = models.FileField(upload_to="pdf/%Y/%m/%d/", verbose_name="PDF", null=True, blank=True)
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата и время создания")
     time_update = models.DateTimeField(auto_now=True, verbose_name="Дата и время обновления")
     is_published = models.BooleanField(default=True, verbose_name="Публикация")
-    registration = models.ManyToManyField(users.models.User, null=True)
+    registration = models.ManyToManyField(users.models.User, verbose_name="Участники программы")
+    selection_procedure = models.TextField(blank=True, null=True, verbose_name="Порядок отбора")
     cat = models.ForeignKey('CategoryProg', on_delete=models.PROTECT, verbose_name="Категория", null=True)
 
     def __str__(self):

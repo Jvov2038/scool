@@ -291,8 +291,8 @@ h3 {
 
 /* line 210, ../../Arafath/CL/january 2020/243.Education/HTML/scss/theme-default.scss */
 .section__padding {
-  padding-top: 50px;
-  padding-bottom: 200px;
+  padding-top: 10px;
+  padding-bottom: 50px;
 }
 
 @media (max-width: 767px) {
@@ -2783,11 +2783,11 @@ h3 {
   display: -ms-inline-flexbox;
   display: inline-flex;
   background: #f8fafe;
-  margin-bottom: 80px;
+  margin-bottom: 5px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  margin-top: 33px;
+  margin-top: 5px;
 }
 
 @media (max-width: 767px) {
@@ -3314,7 +3314,7 @@ h3 {
 /* line 137, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_event.scss */
 .event_details_area .single_event .event_details_info .event_info h4 {
   font-size: 30px;
-  font-family: "Abril Fatface", cursive;
+  font-family: "Gothic", cursive;
   color: #234262;
   margin-bottom: 15px;
 }
@@ -3378,7 +3378,7 @@ h3 {
 
 /* line 175, ../../Arafath/CL/january 2020/243.Education/HTML/scss/_event.scss */
 .event_details_area .single_event .event_details_info .event_info_text {
-  margin-bottom: 54px;
+  margin-bottom: 50px;
 }
 
 @media (max-width: 767px) {

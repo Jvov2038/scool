@@ -57,6 +57,10 @@ class LoginUserForm(AuthenticationForm):
 class PersonalAreaForm(UserChangeForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Имя'}))
     last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Фамилия'}))
+    patronymic = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Отчество'}))
+    birth = forms.DateTimeField(widget=forms.DateTimeInput(attrs={'class': 'single-input', 'placeholder': 'Дата рождения'}))
+    school = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Школа'}))
+    school_class = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Класс'}))
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Имя пользователя',
                                                              'readonly': True}))
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'single-input', 'placeholder': 'Email адрес',
@@ -67,6 +71,6 @@ class PersonalAreaForm(UserChangeForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'username', 'email', 'address', 'phone_number', 'image')
+        fields = ('first_name', 'last_name', 'patronymic', 'birth', 'school', 'school_class', 'username', 'email', 'address', 'phone_number', 'image')
 
 

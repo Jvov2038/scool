@@ -2,4 +2,12 @@
 
 {% block content %}
 
+    {% for post in posts %}
+        {% if post.title == 'О центре' %}
+             <a href="{{ p.get_absolute_url }}">
+                 <h3>{{ p.title|truncatewords:4 }}</h3>
+             </a>
+        {% endif %}
+    {% endfor %}
+
 {% endblock %}

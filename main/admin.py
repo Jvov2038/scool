@@ -47,6 +47,7 @@ class ProgAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'title')
     search_fields = ('title',)
     list_editable = ('is_published',)
+    filter_horizontal = ('registration',)
     list_filter = ('is_published', 'time_create')
     prepopulated_fields = {"slug": ("title",)}
 
