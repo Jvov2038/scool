@@ -9,10 +9,10 @@
 						<form action="{% url 'personal_area' %}" method="post">
 							{% csrf_token %}
 							<div class="mt-10">
-								{{ form.first_name }}
+								{{ form.last_name }}
 							</div>
 							<div class="mt-10">
-								{{ form.last_name }}
+								{{ form.first_name }}
 							</div>
 							<div class="mt-10">
 								{{ form.patronymic }}
@@ -33,16 +33,24 @@
 								<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
 								{{ form.address }}
 							</div>
-							<div class="input-group-icon mt-10">
-								<div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
-								<div class="form-select" id="default-select">
-									{{ form.school_class }}
+							<div class="single-element-widget mt-30">
+								<h3 class="mb-30"></h3>
+								<div class="default-select" id="default-select">
+									<select>
+									<option value="1">{{ form.school__school }}</option>
+									</select>
 								</div>
 							</div>
-							<div class="input-group-icon mt-10">
-								<div class="icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
-								<div class="form-select" id="default-select">
-									{{ form.school }}
+							<div class="single-element-widget mt-30">
+								<h3 class="mb-30"></h3>
+								<div class="default-select" id="default-select">
+									<select>
+									<option value="1">{{ form.school_class__school_class }}</option>
+									<option value="1"></option>
+									<option value="1"></option>
+									<option value="1"></option>
+									<option value="1"></option>
+									</select>
 								</div>
 							</div>
 
@@ -82,9 +90,9 @@
 						</div>
 						<div class="single-element-widget mt-30">
 							<h3 class="mb-30">Selectboxes</h3>
-							<div class="default-select" id="default-select"">
-										<select>
-											<option value=" 1">English</option>
+							<div class="default-select" id="default-select">
+								<select>
+								<option value="1">English</option>
 								<option value="1">Spanish</option>
 								<option value="1">Arabic</option>
 								<option value="1">Portuguise</option>

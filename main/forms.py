@@ -2,10 +2,9 @@ import this
 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
-from users.models import User
+from users.models import User, School
 from django.core.exceptions import ValidationError
 from django.template.defaultfilters import slugify
-from phonenumber_field.modelfields import PhoneNumberField
 from captcha.fields import CaptchaField
 
 from .models import *
@@ -39,13 +38,15 @@ class AddPostForm(forms.ModelForm):
 class RegisterUserForm(UserCreationForm):
     username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
     email = forms.EmailField(label='Email', widget=forms.EmailInput(attrs={'class': 'form-input'}))
+    first_name = forms.CharField(label='Имя', widget=forms.TextInput(attrs={'class': 'form-input'}))
+    last_name = forms.CharField(label='Фамилия', widget=forms.TextInput(attrs={'class': 'form-input'}))
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
     password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
     captcha = CaptchaField()
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2')
 
 
 class LoginUserForm(AuthenticationForm):
@@ -58,9 +59,12 @@ class PersonalAreaForm(UserChangeForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Имя'}))
     last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Фамилия'}))
     patronymic = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Отчество'}))
-    birth = forms.DateTimeField(widget=forms.DateTimeInput(attrs={'class': 'single-input', 'placeholder': 'Дата рождения'}))
-    school = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Школа'}))
-    school_class = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Класс'}))
+    birth = forms.DateTimeField(widget=forms.DateInput(attrs={'class': 'single-input',
+                                                                  'placeholder': 'Дата рождения'}))
+    school_class__school_class = forms.ChoiceField(widget=forms.Select(attrs={'class': 'default-select',
+                                                                               'placeholder': 'Класс'}))
+    school__school = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input',
+                                                                               'placeholder': 'Школа', 'queryset': 'User.school.all()'}))
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Имя пользователя',
                                                              'readonly': True}))
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'single-input', 'placeholder': 'Email адрес',
@@ -71,6 +75,7 @@ class PersonalAreaForm(UserChangeForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'patronymic', 'birth', 'school', 'school_class', 'username', 'email', 'address', 'phone_number', 'image')
+        fields = ('first_name', 'last_name', 'patronymic', 'birth', 'school_class__school_class',
+                  'username', 'email', 'address', 'phone_number', 'image')
 
 

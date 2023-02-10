@@ -46,15 +46,17 @@
                                     <p><span>+7(928)-686-44-77 </span> | <span> vardasheva2017@yandex.ru</span></p>
                                 </div>
                                 <div class="Appointment">
-                                    <div class="genric-btn success radius">
-                                        <h4 data-scroll-nav='1' href="#">Подать заявку</h4>
+                                    {% if request.user.is_authenticated %}
+                                    <div class="genric-btn success medium">
+                                        <a href="{% url 'educational_programs' %}">Подать заявку</a>
                                     </div>
                                 </div>
                                 <div class="text_wrap">
-                                    {% if request.user.is_authenticated %}
-                                    <p>{{ user.username }}<a href="{% url 'logout' %}">Выйти</a></p>
+                                    <p><a href="{% url 'personal_area' %}">{{ user.username }}</a><a href="{% url 'logout' %}">Выйти</a></p>
                                     {% else %}
-                                    <p><a href="{% url 'register' %}"> <i class="ti-user"></i> Регистрация</a> <a href="{% url 'login' %}">Личный кабинет</a></p>
+                                </div>
+                                <div class="text_wrap">
+                                    <p><a href="{% url 'register' %}">Регистрация</a><a href="{% url 'login' %}">Личный кабинет</a></p>
                                     {% endif %}
                                 </div>
                             </div>
@@ -112,8 +114,6 @@
                      <h1>{{ title }}</h1>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.173234312748!2d44.67214721523586!3d43.0588239791462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40500acb93601b7b%3A0x5f64a63abbfd9e1!2z0YPQuy4g0J_QvtC20LDRgNGB0LrQvtCz0L4sIDIxLCDQktC70LDQtNC40LrQsNCy0LrQsNC3LCDQoNC10YHQvy4g0KHQtdCy0LXRgNC90LDRjyDQntGB0LXRgtC40Y8t0JDQu9Cw0L3QuNGPLCAzNjIwMTM!5e0!3m2!1sru!2sru!4v1673282854604!5m2!1sru!2sru" width="1000" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-
-
                 <div class="row">
                     <div class="col-12">
                         <h2 class="contact-title">Связаться с нами</h2>

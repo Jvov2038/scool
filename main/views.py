@@ -239,8 +239,8 @@ def faq(request):
 
 
 #Пункт главного меню №3#
-def teachers(request):
-    return HttpResponse('Педагогам')
+def events(request):
+    return HttpResponse('Мероприятия')
 
 
 
@@ -248,8 +248,8 @@ def methodological_support(request):
     return HttpResponse('Методическое сопровождение')
 
 
-def science_program(request):
-    return HttpResponse('Наука')
+def sirius_leto(request):
+    return HttpResponse('Сириус лето')
 
 
 def sports_program(request):

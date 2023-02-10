@@ -33,12 +33,12 @@ html, body {
 #container {
 	position: fixed;
 	z-index: 999999;
-	width: 340px;
-	height: 360px;
+	width: 500px;
+	height: 500px;
 	top: 50%;
 	left: 50%;
-	margin-top: -140px;
-	margin-left: -170px;
+	margin-top: -240px;
+	margin-left: -230px;
 	background: #fff;
 	border-radius: 3px;
 	border: 1px solid #ccc;
@@ -276,14 +276,14 @@ padd {
 	border-bottom-left-radius: 3px;
 }
 
-#container_add {
+#container_login {
 	position: center;
-	width: 1000px;
-	height: 500px;
+	width: 360px;
+	height: 350px;
 	top: 50%;
 	left: 50%;
 	margin-top: 100px;
-	margin-left: 150px;
+	margin-left: 450px;
 	background: #fff;
 	border-radius: 3px;
 	border: 1px solid #ccc;

@@ -11,8 +11,9 @@
                             <img src="{{ prog.photo.url }}" alt="">
                             {% endif %}
                             <div class="date text-center">
-                                <h4>{{ prog.time_update|date:"d" }}</h4>
-                                <span>{{ prog.time_update|date:"m-Y" }}</span>
+                                <span>c {{ prog.time_start|date:"j E Y" }}</span>
+                                <br>
+                                <span>по {{ prog.time_ending|date:"j E Y" }}</span>
                             </div>
                         </div>
                         <div class="event_details_info">
@@ -20,7 +21,7 @@
                                 <a href="#">
                                     <h4>{{ prog.title }}</h4>
                                  </a>
-                                <p><span> <i class="flaticon-clock"></i>{{ prog.time_update|date:"H:i" }}</span> <span> <i class="flaticon-calendar"></i> {{ prog.time_update|date:"d-m-Y" }}</span> <span> <i class="flaticon-placeholder"></i> AH Oditoriam</span> </p>
+                                <p><span> <i class="flaticon-clock"></i>{{ prog.time_update|date:"H:i" }}</span> <span> <i class="flaticon-calendar"></i> {{ prog.time_update|date:"d-m-Y" }}</span> <span> <i class="flaticon-placeholder"></i>Пожарского 21</span> </p>
                             </div>
                             <p class="event_info_text">{{ prog.content }}</p>
                             <a href="#" class="boxed-btn3">Регистрация</a>
@@ -47,7 +48,26 @@
             <hr>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                    {{ prog.selection_procedure|linebreaks }}
+                    <div class="col-lg-6 col-md-6">
+                            <div class="single__program">
+                                <div class="program_thumb">
+                                    {% if prog.photo2 %}
+                                        <img src="{{ prog.photo2.url }}" alt="">
+                                    {% endif %}
+                                </div>
+                            </div>
+                    </div>
+                                    <a>{{ prog.selection_procedure|linebreaks }}</a>
+                    <div class="col-lg-6 col-md-6">
+                            <div class="single__program">
+                                <div class="program_thumb">
+                                    {% if prog.photo3 %}
+                                        <img src="{{ prog.photo3.url }}">
+                                    {% endif %}
+                                </div>
+                            </div>
+                    </div>
+                                    <a>{{ prog.selection_procedure2|linebreaks }}</a>
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div class="event_details_area section__padding">
@@ -55,18 +75,23 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="single_event d-flex align-items-center">
-                                         <div class="thumb">
-                                                <img src="{{ prog.registration.image }}" alt="">
-                                         </div>
-                                        <div class="event_details_info">
-                                            <div class="event_info">
-                                                <a href="#">
-                                                    <h4></h4>
-                                                    <hr>
-                                                </a>
+                                         <div class="whole-wrap">
+                                            <div class="container box_1170">
+                                                <div class="section-top-border">
+                                                    <h3 class="mb-30">{{ prog.supervisor.last_name }} {{ prog.supervisor.first_name }} {{ prog.supervisor.patronymic }}</h3>
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            {% if prog.supervisor.image %}
+                                                            <img src="{{ prog.supervisor.image.url }}" alt="" class="img-fluid">
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="col-md-9 mt-sm-20">
+                                                            <p>{{ prog.supervisor.merit|linebreaks }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <p class="event_info_text"></p>
-                                        </div>
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -74,10 +99,21 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <img src='{{ prog.photo.url }}' width='100%' height='100%'>
+                    {% if prog.photo4 %}
+                    <img src="{{ prog.photo4.url }}">
+                    {% endif %}
+                    <a>{{ prog.prog_statement|linebreaks }}</a>
+                   {% if prog.photo5 %}
+                    <img src="{{ prog.photo5.url }}">
+                    {% endif %}
+                    <a>{{ prog.prog_statement2|linebreaks }}</a>
                 </div>
                 <div class="tab-pane fade" id="nav-contact2" role="tabpanel" aria-labelledby="nav-contact-tab">
-
+                    {% for p in posts %}
+                    {% if p.prog_id == 1 %}
+                        {{ p.content }}
+                    {% endif %}
+                    {% endfor %}
                 </div>
             </div>
         </div>

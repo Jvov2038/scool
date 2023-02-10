@@ -26,7 +26,7 @@
 
 				<div class="form-error">{{ form.non_field_errors }}</div>
 				{% for f in form %}
-					<padd><label_add for="name">{{ f.label }}: </label_add>{{ f }}</padd>
+					<p><label for="name">{{ f.label }}: </label>{{ f }}</p>
 					<div class="form-error">{{ f.errors }}</div>
 				{% endfor %}
 				<div id="lower">

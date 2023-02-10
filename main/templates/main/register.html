@@ -20,20 +20,28 @@
 
 </head>
 	<body>
-	<div id="container">
-		<form method="post" enctype="multipart/form-data">
-			{% csrf_token %}
+		<div id="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<form method="post" enctype="multipart/form-data">
+						{% csrf_token %}
 
-			<div class="form-error">{{ form.non_field_errors }}</div>
-			{% for f in form %}
-			<pa><label for="name">{{ f.label }}: </label>{{ f }}</pa>
-			<div class="form-error">{{ f.errors }}</div>
-			{% endfor %}
-			<div id="lowera">
-				<input type="submit" value="Регистрация">
+						<div class="form-error">{{ form.non_field_errors }}</div>
+						{% for f in form %}
+						<p><label for="name">{{ f.label }}: </label>{{ f }}</p>
+						<div class="form-error">{{ f.errors }}</div>
+						{% endfor %}
+
+						<div id="lowera">
+							<a href="/">
+								<img height="60px" src="../../static/main2/img/logo_header.png" alt="">
+							</a>
+							<input type="submit" value="Регистрация">
+						</div>
+					</form>
+				</div>
 			</div>
-		</form>
-	</div>
+		</div>
 	</body>
 </html>
 

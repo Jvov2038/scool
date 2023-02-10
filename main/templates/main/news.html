@@ -1,8 +1,10 @@
 {% extends 'main/base.html' %}
 
+
+
 {% block content %}
     <!-- recent_news_area_start  -->
-    <div class="recent_news_area section__padding">
+<div class="recent_news_area section__padding" xmlns="http://www.w3.org/1999/html">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-10">
@@ -14,13 +16,80 @@
             </div>
             <div class="row">
                 {% for p in posts %}
-                    {% if p.cat_id == 1 %}
                 <div class="col-md-6">
                     <div class="single__news">
                         <div class="thumb">
-                            <a href="{{ p.get_absolute_url }}">
-                                <img src="{{ p.photo.url }}" alt="">
-                            </a>
+                            <!-- slider_area_start -->
+                            <div class="slider_area">
+                                <div class="slider_active owl-carousel">
+                                    <!-- single_carouse -->
+                                    <div class="single_slider  d-flex align-items-center slider_bg_1">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    {% if p.photo %}
+                                                    <img class="card-img rounded-0" src="{{ p.photo.url }}" alt="">
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/ single_carouse -->
+                                    <!-- single_carouse -->
+                                    <div class="single_slider  d-flex align-items-center slider_bg_2">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    {% if p.photo2 %}
+                                                    <img class="card-img rounded-0" src="{{ p.photo2.url }}" alt="">
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/ single_carouse -->
+                                    <!-- single_carouse -->
+                                    <div class="single_slider  d-flex align-items-center slider_bg_3">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    {% if p.photo3 %}
+                                                    <img class="card-img rounded-0" src="{{ p.photo3.url }}" alt="">
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/ single_carouse -->
+                                    <!-- single_carouse -->
+                                    <div class="single_slider  d-flex align-items-center slider_bg_4">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    {% if p.photo4 %}
+                                                    <img class="card-img rounded-0" src="{{ p.photo4.url }}" alt="">
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/ single_carouse -->
+                                    <!-- single_carouse -->
+                                    <div class="single_slider  d-flex align-items-center slider_bg_5">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    {% if p.photo5 %}
+                                                    <img class="card-img rounded-0" src="{{ p.photo5.url }}" alt="">
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/ single_carouse -->
+                                </div>
+                            </div>
+                            <!-- slider_area_end -->
                             <span class="badge">{{ p.cat }}</span>
                         </div>
                         <div class="news_info">
@@ -33,7 +102,6 @@
                         </div>
                     </div>
                 </div>
-                    {% endif %}
                 {% endfor %}
             </div>
         </div>

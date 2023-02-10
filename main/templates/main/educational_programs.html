@@ -29,19 +29,97 @@
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="row">
                         {% for p in progs %}
-                        {% if p.cat_id == 1 %}
+                        {% if p.cat_id == 2 %}
                         <div class="col-lg-4 col-md-6">
                             <div class="single__program">
                                 <div class="program_thumb">
-                                    <a href="{{ p.get_absolute_url }}">
-                                        <img src="{{ p.photo.url }}" alt="">
-                                    </a>
+                                            <!-- slider_area_start -->
+                                    <div class="slider_area">
+                                        <div class="slider_active owl-carousel">
+                                            <!-- single_carouse -->
+                                            {% if p.photo %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_1">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <a href="{{ p.get_absolute_url }}">
+                                                            <img class="card-img rounded-0" src="{{ p.photo.url }}" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo2 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_2">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                                <img class="card-img rounded-0" src="{{ p.photo2.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo3 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_3">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                                <img class="card-img rounded-0" src="{{ p.photo3.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo4 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_4">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                                <img class="card-img rounded-0" src="{{ p.photo4.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo5 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_5">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                                <img class="card-img rounded-0" src="{{ p.photo5.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                        </div>
+                                    </div>
+                                    <!-- slider_area_end -->
                                     <span class="badge">{{ p.cat }}</span>
                                 </div>
                                 <div class="program__content">
-                                    <h4>{{ p.title }}</h4>
+                                    <a href="{{ p.get_absolute_url }}">
+                                        <h4>{{ p.title }}</h4>
+                                    </a>
                                     <p>{{ p.content|truncatewords:10 }}</p>
-                                    <a href="#" class="boxed-btn5">Подробнее</a>
+                                    <a href="{{ p.get_absolute_url }}" class="boxed-btn5">Подробнее</a>
                                 </div>
                             </div>
                         </div>
@@ -50,21 +128,99 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                    <div class="row">
+                     <div class="row">
                         {% for p in progs %}
-                        {% if p.cat_id == 2 %}
+                        {% if p.cat_id == 3 %}
                         <div class="col-lg-4 col-md-6">
                             <div class="single__program">
                                 <div class="program_thumb">
-                                    <a href="{{ p.get_absolute_url }}">
-                                        <img src="{{ p.photo.url }}" alt="">
-                                    </a>
+                                            <!-- slider_area_start -->
+                                    <div class="slider_area">
+                                        <div class="slider_active owl-carousel">
+                                            <!-- single_carouse -->
+                                            {% if p.photo %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_1">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <a href="{{ p.get_absolute_url }}">
+                                                            <img class="card-img rounded-0" src="{{ p.photo.url }}" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo2 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_2">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                                <img class="card-img rounded-0" src="{{ p.photo2.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo3 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_3">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                                <img class="card-img rounded-0" src="{{ p.photo3.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo4 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_4">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                                <img class="card-img rounded-0" src="{{ p.photo4.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo5 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_5">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                                <img class="card-img rounded-0" src="{{ p.photo5.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                        </div>
+                                    </div>
+                                    <!-- slider_area_end -->
                                     <span class="badge">{{ p.cat }}</span>
                                 </div>
                                 <div class="program__content">
-                                    <h4>{{ p.title }}</h4>
+                                    <a href="{{ p.get_absolute_url }}">
+                                        <h4>{{ p.title }}</h4>
+                                    </a>
                                     <p>{{ p.content|truncatewords:10 }}</p>
-                                    <a href="#" class="boxed-btn5">Подробнее</a>
+                                    <a href="{{ p.get_absolute_url }}" class="boxed-btn5">Подробнее</a>
                                 </div>
                             </div>
                         </div>
@@ -73,21 +229,99 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <div class="row">
+                     <div class="row">
                         {% for p in progs %}
-                        {% if p.cat_id == 3 %}
+                        {% if p.cat_id == 4 %}
                         <div class="col-lg-4 col-md-6">
                             <div class="single__program">
                                 <div class="program_thumb">
-                                    <a href="{{ p.get_absolute_url }}">
-                                        <img src="{{ p.photo.url }}" alt="">
-                                    </a>
+                                            <!-- slider_area_start -->
+                                    <div class="slider_area">
+                                        <div class="slider_active owl-carousel">
+                                            <!-- single_carouse -->
+                                            {% if p.photo %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_1">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <a href="{{ p.get_absolute_url }}">
+                                                            <img class="card-img rounded-0" src="{{ p.photo.url }}" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo2 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_2">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                                <img class="card-img rounded-0" src="{{ p.photo2.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo3 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_3">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                                <img class="card-img rounded-0" src="{{ p.photo3.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo4 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_4">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                                <img class="card-img rounded-0" src="{{ p.photo4.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo5 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_5">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                                <img class="card-img rounded-0" src="{{ p.photo5.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                        </div>
+                                    </div>
+                                    <!-- slider_area_end -->
                                     <span class="badge">{{ p.cat }}</span>
                                 </div>
                                 <div class="program__content">
-                                    <h4>{{ p.title }}</h4>
+                                    <a href="{{ p.get_absolute_url }}">
+                                        <h4>{{ p.title }}</h4>
+                                    </a>
                                     <p>{{ p.content|truncatewords:10 }}</p>
-                                    <a href="#" class="boxed-btn5">Подробнее</a>
+                                    <a href="{{ p.get_absolute_url }}" class="boxed-btn5">Подробнее</a>
                                 </div>
                             </div>
                         </div>
@@ -96,21 +330,101 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-contact2" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    <div class="row">
+                     <div class="row">
                         {% for p in progs %}
-                        {% if p.cat_id == 4 %}
+                        {% if p.cat_id == 1 %}
                         <div class="col-lg-4 col-md-6">
                             <div class="single__program">
                                 <div class="program_thumb">
-                                    <a href="{{ p.get_absolute_url }}">
-                                        <img src="{{ p.photo.url }}" alt="">
-                                    </a>
+                                            <!-- slider_area_start -->
+                                    <div class="slider_area">
+                                        <div class="slider_active owl-carousel">
+                                            <!-- single_carouse -->
+                                            {% if p.photo %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_1">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <a href="{{ p.get_absolute_url }}">
+                                                            <img class="card-img rounded-0" src="{{ p.photo.url }}" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo2 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_2">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                                <a href="{{ p.get_absolute_url }}">
+                                                                <img class="card-img rounded-0" src="{{ p.photo2.url }}" alt="">
+                                                                </a>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo3 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_3">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                                <img class="card-img rounded-0" src="{{ p.photo3.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo4 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_4">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                            <img class="card-img rounded-0" src="{{ p.photo4.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                            <!-- single_carouse -->
+                                            {% if p.photo5 %}
+                                            <div class="single_slider  d-flex align-items-center slider_bg_5">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-xl-12">
+                                                            <a href="{{ p.get_absolute_url }}">
+                                                            <img class="card-img rounded-0" src="{{ p.photo5.url }}" alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <!--/ single_carouse -->
+                                        </div>
+                                    </div>
+                                    <!-- slider_area_end -->
                                     <span class="badge">{{ p.cat }}</span>
                                 </div>
                                 <div class="program__content">
-                                    <h4>{{ p.title }}</h4>
+                                    <a href="{{ p.get_absolute_url }}">
+                                        <h4>{{ p.title }}</h4>
+                                    </a>
                                     <p>{{ p.content|truncatewords:10 }}</p>
-                                    <a href="#" class="boxed-btn5">Подробнее</a>
+                                    <a href="{{ p.get_absolute_url }}" class="boxed-btn5">Подробнее</a>
                                 </div>
                             </div>
                         </div>

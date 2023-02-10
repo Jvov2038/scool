@@ -35,10 +35,10 @@ urlpatterns = [
     path('required_docs/', required_docs, name='required_docs'),
     path('faq', faq, name='FAQ'),
     path('lecture_hall/', LectureHall.as_view(), name='lecture_hall'),
-    path('teachers/', teachers, name='teachers'),
+    path('events/', events, name='events'),
     path('educational_programs/', Program.as_view(), name='educational_programs'),
     path('methodological_support/', methodological_support, name='methodological_support'),
-    path('science_program/', science_program, name='science_program'),
+    path('sirius_leto/', sirius_leto, name='sirius_leto'),
     path('sports_program/', sports_program, name='sports_program'),
     path('culture_program/', culture_program, name='culture_program'),
 
