@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class SchoolClass(models.Model):
@@ -19,7 +20,7 @@ class School(models.Model):
 class User(AbstractUser):
     image = models.ImageField(upload_to='users_images', null=True, blank=True)
     address = models.CharField(max_length=255, null=True, blank=True)
-    phone_number = models.CharField(max_length=20, null=True, blank=True)
+    phone_number = PhoneNumberField(null=True, blank=True)
     patronymic = models.CharField(max_length=255, null=True, blank=True, verbose_name="Отчество")
     birth = models.DateTimeField(null=True, blank=True, verbose_name="Дата рождения")
     school_class = models.ForeignKey(SchoolClass, on_delete=models.PROTECT, verbose_name="Класс", null=True, blank=True)

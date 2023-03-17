@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, User
 from users.models import User, School
 from django.core.exceptions import ValidationError
 from django.template.defaultfilters import slugify
+from phonenumber_field.modelfields import PhoneNumberField
 from captcha.fields import CaptchaField
 
 from .models import *
