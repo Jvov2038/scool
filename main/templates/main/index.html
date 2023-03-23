@@ -185,7 +185,11 @@
                         <h3 class="widget_title">Последние новости</h3>
                         {% for p in posts %}
                         <div class="media post_item">
-                            <img class="logo-img" src="{{ p.photo.url }}"  alt="post">
+                             <li>
+                                 <a href="{{ p.get_absolute_url }}">
+                                     <img class="img-fluid" src="{{ p.photo.url }}" alt="">
+                                 </a>
+                             </li>
                             <div class="media-body">
                                 <a href="{{ p.get_absolute_url }}">
                                     <h3>{{ p.title|truncatewords:4 }}</h3>
