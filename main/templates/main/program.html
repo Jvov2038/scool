@@ -109,11 +109,11 @@
                     <a>{{ prog.prog_statement2|linebreaks }}</a>
                 </div>
                 <div class="tab-pane fade" id="nav-contact2" role="tabpanel" aria-labelledby="nav-contact-tab">
-                    {% for p in posts %}
-                    {% if p.prog_id == 1 %}
-                        {{ p.content }}
+                    {% if program.pdffile %}
+                    <embed src="{{ prog.pdffile }}" width="700" height="500" />
+                    {% else %}
+                    <iframe src="" width="700" height="400"></iframe>
                     {% endif %}
-                    {% endfor %}
                 </div>
             </div>
         </div>

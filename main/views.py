@@ -13,7 +13,7 @@ from .utils import *
 
 
 class MainHome(DataMixin, ListView):
-    paginate_by = 3
+    paginate_by = 10
     model = Article
     template_name = 'main/index.html'
     context_object_name = 'posts'
@@ -22,9 +22,6 @@ class MainHome(DataMixin, ListView):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title="Образовательный центр")
         return dict(list(context.items()) + list(c_def.items()))
-
-    def get_queryset(self):
-        return Article.objects.filter(is_published=True)
 
 
 class RegisterUser(DataMixin, CreateView):
@@ -73,6 +70,9 @@ class ShowPost(DataMixin, DetailView):
         c_def = self.get_user_context(title=context['post'])
         return dict(list(context.items()) + list(c_def.items()))
 
+    def get_queryset(self):
+        return Article.objects.filter(is_published=True)
+
 
 class Gallery(DataMixin, ListView):
     paginate_by = 50
@@ -98,8 +98,8 @@ class About(DataMixin, ListView):
         c_def = self.get_user_context(title="О центре")
         return dict(list(context.items()) + list(c_def.items()))
 
-    def get_queryset(self):
-        return Article.objects.filter(is_published=True)
+ #   def get_queryset(self):
+  #      return Article.objects.filter(is_published=True)
 
 
 def personal_area(request):
@@ -151,21 +151,44 @@ class ShowProgram(DataMixin, DetailView):
         return dict(list(context.items()) + list(c_def.items()))
 
 
+class Info(DataMixin, ListView):
+    paginate_by = 10
+    model = Article
+    template_name = 'main/info.html'
+    context_object_name = 'posts'
 
-def info(request):
-    return HttpResponse('Общая информация')
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Общая информация")
+        return dict(list(context.items()) + list(c_def.items()))
 
 
-def p_advice(request):
-    return HttpResponse('Попечительский совет')
+class P_advice(DataMixin, ListView):
+    paginate_by = 50
+    model = User
+    template_name = 'main/p_advice.html'
+    context_object_name = 'users'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Попечительский совет")
+        return dict(list(context.items()) + list(c_def.items()))
 
 
 def e_advice(request):
     return HttpResponse('Экспертный совет')
 
 
-def docs(request):
-    return HttpResponse('Документы')
+class Docs(DataMixin, ListView):
+    paginate_by = 50
+    model = Article
+    template_name = 'main/docs.html'
+    context_object_name = 'posts'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Документы")
+        return dict(list(context.items()) + list(c_def.items()))
 
 
 def partners(request):
@@ -186,6 +209,9 @@ class News(DataMixin, ListView):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title="Новости")
         return dict(list(context.items()) + list(c_def.items()))
+
+    def get_queryset(self):
+        return Article.objects.filter(is_published=True)
 
 
 class Contacts(DataMixin, ListView):
@@ -288,6 +314,6 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
         return dict(list(context.items()) + list(c_def.items()))
 
 
-def pageNotFound(request, exception):
-    return HttpResponseNotFound('<h1>Страница не найдена</h1>')
+#def pageNotFound(request, exception):
+#    return HttpResponseNotFound(request, "<h3>Страница не найдена</h3>")
 

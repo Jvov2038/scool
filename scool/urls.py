@@ -24,5 +24,3 @@ urlpatterns = [
     path('', include('main.urls')),
     path('captcha/', include('captcha.urls')),
 ]
-
-handler404 = pageNotFound

@@ -23,69 +23,109 @@
                             <div class="slider_area">
                                 <div class="slider_active owl-carousel">
                                     <!-- single_carouse -->
+                                    {% if p.photo %}
                                     <div class="single_slider  d-flex align-items-center slider_bg_1">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-xl-12">
-                                                    {% if p.photo %}
                                                     <img class="card-img rounded-0" src="{{ p.photo.url }}" alt="">
-                                                    {% endif %}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    {% endif %}
                                     <!--/ single_carouse -->
                                     <!-- single_carouse -->
+                                    {% if p.photo2 %}
                                     <div class="single_slider  d-flex align-items-center slider_bg_2">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-xl-12">
-                                                    {% if p.photo2 %}
                                                     <img class="card-img rounded-0" src="{{ p.photo2.url }}" alt="">
-                                                    {% endif %}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    {% else %}
+                                    <div class="single_slider  d-flex align-items-center slider_bg_2">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <img class="card-img rounded-0" src="{{ p.photo.url }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
                                     <!--/ single_carouse -->
                                     <!-- single_carouse -->
+                                    {% if p.photo3 %}
                                     <div class="single_slider  d-flex align-items-center slider_bg_3">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-xl-12">
-                                                    {% if p.photo3 %}
                                                     <img class="card-img rounded-0" src="{{ p.photo3.url }}" alt="">
-                                                    {% endif %}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    {% else %}
+                                    <div class="single_slider  d-flex align-items-center slider_bg_3">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <img class="card-img rounded-0" src="{{ p.photo.url }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
                                     <!--/ single_carouse -->
                                     <!-- single_carouse -->
+                                    {% if p.photo4 %}
                                     <div class="single_slider  d-flex align-items-center slider_bg_4">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-xl-12">
-                                                    {% if p.photo4 %}
                                                     <img class="card-img rounded-0" src="{{ p.photo4.url }}" alt="">
-                                                    {% endif %}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    {% else %}
+                                    <div class="single_slider  d-flex align-items-center slider_bg_4">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <img class="card-img rounded-0" src="{{ p.photo.url }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
                                     <!--/ single_carouse -->
                                     <!-- single_carouse -->
+                                    {% if p.photo5 %}
                                     <div class="single_slider  d-flex align-items-center slider_bg_5">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-xl-12">
-                                                    {% if p.photo5 %}
                                                     <img class="card-img rounded-0" src="{{ p.photo5.url }}" alt="">
-                                                    {% endif %}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    {% else %}
+                                    <div class="single_slider  d-flex align-items-center slider_bg_5">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <img class="card-img rounded-0" src="{{ p.photo.url }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
                                     <!--/ single_carouse -->
                                 </div>
                             </div>
@@ -125,6 +165,5 @@
         </ul>
     </nav>
     </div>
-
     <!-- recent_news_area_end  -->
 {% endblock %}

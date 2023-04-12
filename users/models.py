@@ -28,7 +28,7 @@ class User(AbstractUser):
     merit = models.TextField(blank=True, verbose_name="Заслуги", null=True)
 
     def __str__(self):
-        return self.first_name
+        return self.first_name + " " + self.last_name
 
 
 

@@ -63,9 +63,9 @@ class PersonalAreaForm(UserChangeForm):
     birth = forms.DateTimeField(widget=forms.DateInput(attrs={'class': 'single-input',
                                                                   'placeholder': 'Дата рождения'}))
     school_class__school_class = forms.ChoiceField(widget=forms.Select(attrs={'class': 'default-select',
-                                                                               'placeholder': 'Класс'}))
-    school__school = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input',
-                                                                               'placeholder': 'Школа', 'queryset': 'User.school.all()'}))
+                                                                               'placeholder': 'Класс'}), required=True)
+    school__school = forms.ChoiceField(widget=forms.Select(attrs={'class': 'default-select',
+                                                                               'placeholder': 'Школа'}), required=True)
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'single-input', 'placeholder': 'Имя пользователя',
                                                              'readonly': True}))
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'single-input', 'placeholder': 'Email адрес',
@@ -76,7 +76,7 @@ class PersonalAreaForm(UserChangeForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'patronymic', 'birth', 'school_class__school_class',
+        fields = ('first_name', 'last_name', 'patronymic', 'birth', 'school_class__school_class', 'school__school',
                   'username', 'email', 'address', 'phone_number', 'image')
 
 

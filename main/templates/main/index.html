@@ -1,11 +1,12 @@
 {% extends 'main/base.html' %}
 {% block content %}
     <!-- slider_area_start -->
-
     <div class="slider_area">
         <div class="slider_active owl-carousel">
             <!-- single_carouse -->
             {% for p in posts %}
+            {% if p.id == 6 %}
+            {% if p.photo %}
             <div style="background-image:url({{ p.photo.url }})"
                  class="single_slider  d-flex align-items-center slider_bg_1">
                 <div class="container">
@@ -22,8 +23,14 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
             <!--/ single_carouse -->
             <!-- single_carouse -->
+            {% for p in posts %}
+            {% if p.id == 6 %}
+            {% if p.photo2 %}
             <div style="background-image:url({{ p.photo2.url }})"
                  class="single_slider  d-flex align-items-center slider_bg_2">
                 <div class="container">
@@ -40,8 +47,14 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
             <!--/ single_carouse -->
             <!-- single_carouse -->
+            {% for p in posts %}
+            {% if p.id == 6 %}
+            {% if p.photo3 %}
             <div style="background-image:url({{ p.photo3.url }})"
                  class="single_slider d-flex align-items-center slider_bg_3">
                 <div class="container">
@@ -58,8 +71,14 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
             <!--/ single_carouse -->
             <!-- single_carouse -->
+            {% for p in posts %}
+            {% if p.id == 6 %}
+            {% if p.photo4 %}
             <div style="background-image:url({{ p.photo4.url }})"
                  class="single_slider  d-flex align-items-center slider_bg_4">
                 <div class="container">
@@ -76,8 +95,14 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
             <!--/ single_carouse -->
             <!-- single_carouse -->
+            {% for p in posts %}
+            {% if p.id == 6 %}
+            {% if p.photo5 %}
             <div style="background-image:url({{ p.photo5.url }})"
                  class="single_slider  d-flex align-items-center slider_bg_5">
                 <div class="container">
@@ -94,8 +119,10 @@
                     </div>
                 </div>
             </div>
-            <!--/ single_carouse -->
+            {% endif %}
+            {% endif %}
             {% endfor %}
+            <!--/ single_carouse -->
         </div>
     </div>
     <!-- slider_area_end -->
@@ -106,6 +133,7 @@
                 <div class="col-lg-8 mb-5 mb-lg-0">
                     <div class="blog_left_sidebar">
                         {% for p in posts %}
+                        {% if p.is_published == 1 %}
                         <article class="blog_item">
                             <div class="blog_item_img">
                                 <img class="card-img rounded-0" src="{{ p.photo.url }}" alt="">
@@ -121,13 +149,13 @@
                                 </a>
                                 <p>{{ p.content|truncatewords:20 }}</p>
                                 <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-comments"></i></a></li>
                                 </ul>
                             </div>
                         </article>
+                        {% endif %}
                         {% endfor %}
-
                         <nav class="blog-pagination justify-content-center d-flex">
                             <ul class="pagination">
                                 <li class="page-item">
@@ -135,9 +163,9 @@
                                         <i class="ti-angle-left"></i>
                                     </a>
                                 </li>
-                                {% for p in paginator.page_range %}
+                                {% for pag in paginator.page_range %}
                                 <li class="page-item active">
-                                    <a href="?page={{ p }}" class="page-link">{{ p }}</a>
+                                    <a href="?page={{ pag }}" class="page-link">{{ pag }}</a>
                                 </li>
                                 {% endfor %}
                                 <li class="page-item">
@@ -167,7 +195,6 @@
                                     type="submit">Поиск</button>
                             </form>
                         </aside>
-
                         <aside class="single_sidebar_widget post_category_widget">
                             <h4 class="widget_title">Категории</h4>
                             <ul class="list cat-list">
@@ -180,10 +207,10 @@
                                 {% endfor %}
                             </ul>
                         </aside>
-
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Последние новости</h3>
                         {% for p in posts %}
+                        {% if p.is_published == 1 %}
                         <div class="media post_item">
                              <li>
                                  <a href="{{ p.get_absolute_url }}">
@@ -194,30 +221,28 @@
                                 <a href="{{ p.get_absolute_url }}">
                                     <h3>{{ p.title|truncatewords:4 }}</h3>
                                 </a>
-                                <p>{{p.time_update|date:"d-m-Y H:i"}}</p>
+                                <p>{{p.time_update|date:"d.m.Y"}}</p>
                             </div>
                         </div>
+                        {% endif %}
                         {% endfor %}
                     </aside>
-
                         <aside class="single_sidebar_widget instagram_feeds">
                             <a href="gallery">
                                 <h4 class="widget_title">Фото галерея</h4>
                             </a>
                                 <ul class="instagram_row flex-wrap">
-                                    {% for post in posts %}
-                                    {% if post.prog_id == 2 %}
+                                    {% for p in posts %}
+                                    {% if p.is_published == 1 %}
                                     <li>
                                         <a href="{{ p.get_absolute_url }}">
-                                            <img class="img-fluid" src="{{ post.photo3.url }}" alt="">
+                                            <img class="img-fluid" src="{{ p.photo.url }}" alt="">
                                         </a>
                                     </li>
                                     {% endif %}
                                     {% endfor %}
                                 </ul>
                         </aside>
-
-
                         <aside class="single_sidebar_widget newsletter_widget">
                             <h4 class="widget_title">Новостная рассылка</h4>
 
@@ -232,11 +257,8 @@
                         </aside>
                     </div>
                 </div>
-
                 </div>
             </div>
-        </div>
     </section>
     <!--================Blog Area =================-->
-
 {% endblock %}

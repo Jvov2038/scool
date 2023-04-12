@@ -34,7 +34,7 @@ class Article(models.Model):
     time_update = models.DateTimeField(auto_now=True, verbose_name="Дата и время обновления")
     is_published = models.BooleanField(default=True, verbose_name="Публикация")
     cat = models.ForeignKey(Category, on_delete=models.PROTECT, verbose_name="Категория")
-    prog =models.ForeignKey("Prog", on_delete=models.PROTECT, verbose_name="Программа", blank=True, null=True)
+    prog = models.ForeignKey("Prog", on_delete=models.PROTECT, verbose_name="Программа", blank=True, null=True)
 
     def __str__(self):
         return self.title

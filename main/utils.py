@@ -13,7 +13,6 @@ menu = [
                  ]},
     {'title': 'Как попасть', 'url_name': 'how_to_get',
      'submenu': [{'title': 'Критерии отбора', 'url_name': 'selection_criteria'},
-                 {'title': 'Заявка онлайн', 'url_name': 'online_application'},
                  {'title': 'Правила пребывания', 'url_name': 'stay_rules'},
                  {'title': 'Условия размещения', 'url_name': 'accommodation_conditions'},
                  {'title': 'Памятка для родителей', 'url_name': 'memo_for_parents'},
